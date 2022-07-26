@@ -14,8 +14,8 @@ jobs:
       steps:
         - uses: actions/checkout@v3
 
-	- name: update packages
-	  run: pacman -Syu --noconfirm
+        - name: update packages
+          run: pacman -Syu --noconfirm
 
         - name: install dependencies
           run: sudo pacman -S --noconfirm flatpak-builder flatpak
