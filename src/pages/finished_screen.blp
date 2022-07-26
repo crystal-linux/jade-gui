@@ -1,0 +1,31 @@
+using Gtk 4.0;
+using Adw 1;
+
+template FinishedScreen : Adw.Bin {
+    hexpand: true;
+    vexpand: true;
+    Gtk.Box {
+        hexpand: true;
+        vexpand: true;
+        Adw.StatusPage {
+            hexpand: true;
+            vexpand: true;
+            title: "Installation finished!";
+            description: "Reboot to finish the installation";
+            icon-name: "al.getcryst.jadegui";
+            Gtk.Box  {
+                    orientation: horizontal;
+                    halign: center;
+                    valign: center;
+                    vexpand: true;
+                    hexpand: true;
+
+                    Gtk.Button next_button {
+                        margin-start: 12;
+                        label: "Reboot";
+                        styles ["suggested-action", "pill"]
+                    }
+                }
+        }
+    }
+}

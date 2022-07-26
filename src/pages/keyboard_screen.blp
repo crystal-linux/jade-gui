@@ -1,0 +1,63 @@
+using Gtk 4.0;
+using Adw 1;
+
+template KeyboardScreen : Adw.Bin {
+    hexpand: true;
+    vexpand: true;
+        Gtk.Box {
+            vexpand: true;
+            hexpand: true;
+            //halign: center;
+            //valign: center;
+            Adw.StatusPage {
+                hexpand: true;
+                vexpand: true;
+                title: "Next question: keyboard layout?";
+                description: "What is it? Huh?";
+            Adw.PreferencesPage {
+                Adw.PreferencesGroup {
+                    hexpand: true;
+                    margin-end: 20;
+                    margin-start: 20;
+                    Adw.Carousel keyboard_carousel {
+                        orientation: horizontal;
+                        vexpand: true;
+                        hexpand: true;
+                        Gtk.Box keyboard_layouts {
+                            margin-end: 1;
+                            margin-start: 1;
+                            orientation: vertical;
+                            hexpand: true;
+                            Gtk.Box layout_search {
+                                margin-bottom: 5;
+                                Gtk.SearchEntry layout_entry_search {
+                                    hexpand: true;
+                                    placeholder-text: _("Search for a keyboard layout");
+                                }
+                            }
+                            Gtk.ListBox list_keyboard_layouts {
+                                styles ["boxed-list"]
+                            }
+                        }
+                        Gtk.Box keyboard_variants {
+                            margin-start: 1;
+                            margin-end: 1;
+                            hexpand: true;
+                            orientation: vertical;
+                            Gtk.Box variant_search {
+                                margin-bottom: 5;
+                                Gtk.SearchEntry variant_entry_search {
+                                    hexpand: true;
+                                    placeholder-text: _("Search for a keyboard variant");
+                                }
+                            }
+                            Gtk.ListBox list_keyboard_variants {
+                                styles ["boxed-list"]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

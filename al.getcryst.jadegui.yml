@@ -1,0 +1,81 @@
+app-id: al.getcryst.jadegui
+runtime: org.gnome.Platform
+runtime-version: '42'
+sdk: org.gnome.Sdk
+command: jade_gui
+
+finish-args:
+    - --share=network
+    - --share=ipc
+    - --socket=fallback-x11
+    - --device=dri
+    - --socket=wayland
+#    - --socket=session-bus
+
+cleanup:
+    - /include
+    - /lib/pkgconfig
+    - /man
+    - /share/doc
+    - /share/gtk-doc
+    - /share/pkgconfig
+    - "*.la"
+    - "*.a"
+
+modules:
+    - name: libadwaita
+      buildsystem: meson
+      config-opts:
+        - -Dexamples=false
+        - -Dtests=false
+      sources:
+        - type: git
+          url: https://gitlab.gnome.org/GNOME/libadwaita.git
+          commit: da4125248a434ba7caaec85186db6ab44deecad7
+      modules:
+        - name: libsass
+          buildsystem: meson
+          sources:
+            - type: git
+              url: https://github.com/lazka/libsass.git
+              branch: meson
+        - name: sassc
+          buildsystem: meson
+          sources:
+            - type: git
+              url: https://github.com/lazka/sassc.git
+              branch: meson
+    - name: python3-pytz
+      buildsystem: simple
+      sources:
+        - type: archive
+          url: https://files.pythonhosted.org/packages/2f/5f/a0f653311adff905bbcaa6d3dfaf97edcf4d26138393c6ccd37a484851fb/pytz-2022.1.tar.gz
+          sha256: 1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7
+      build-commands:
+        - ls
+        - pip3 install --prefix=/app .
+   # - name: vte
+   #   buildsystem: meson
+   #   config-opts:
+   #     - -Ddocs = false
+   #     - -Dvapi=false
+   #     - -Dgtk4=true
+   #     - -Dgtk3=false
+   #   sources:
+   #     - type: git
+   #       url: https://gitlab.gnome.org/GNOME/vte.git
+   #       commit: 3ed53bfaa7344ce5b7727a60a2d33315b15201e5
+    - name: blueprint
+      buildsystem: meson
+      sources:
+        - type: git
+          url: "https://gitlab.gnome.org/jwestman/blueprint-compiler"
+          branch: "main"
+    - name: jadegui
+      buildsystem: meson
+      build-options:
+        build-args:
+          - --share=network
+      sources:
+          - type: dir
+            path: .

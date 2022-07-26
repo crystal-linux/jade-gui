@@ -1,0 +1,63 @@
+using Gtk 4.0;
+using Adw 1;
+
+template MiscScreen : Adw.Bin {
+    hexpand: true;
+    vexpand: true;
+
+    Gtk.Box {
+        vexpand: true;
+        hexpand: true;
+        Adw.StatusPage {
+            hexpand: true;
+            vexpand: true;
+            title: "Miscellaneous";
+            description: "";
+            Adw.PreferencesPage {
+                Adw.PreferencesGroup {
+                   Adw.EntryRow hostname_entry {
+                       title: "enter the hostname";
+                   }
+
+                   Gtk.ListBox {
+                       margin-top: 7;
+                       styles [ "boxed-list" ]
+                       Adw.ActionRow {
+                           title: "Enable ipv6";
+                           Gtk.Switch ipv_switch {
+                               valign: center;
+                               state: false;
+                           }
+                       }
+                       Adw.ActionRow {
+                           title: "Enable timeshift";
+                           Gtk.Switch timeshift_switch {
+                               valign: center;
+                               state: true;
+                           }
+                       }
+                       /*Adw.ActionRow {
+                           title: "Enable crystal theming";
+                           Gtk.Switch theme_switch {
+                               valign: center;
+                               state: false;
+                           }
+                       }*/
+                   }
+                }
+            }
+        }
+        Gtk.Overlay {
+            [overlay]
+            Gtk.Button next_page_button {
+                margin-end: 20;
+                margin-bottom: 20;
+                label: "Next";
+                halign: end;
+                valign: end;
+	        tooltip-text: "Move to next page";
+	        styles ["suggested-action"]
+            }
+        }
+    }
+}

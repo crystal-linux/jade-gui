@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="JadeGuiWindow" parent="GtkApplicationWindow">
+    <property name="title">Jade</property>
+    <property name="default-width">600</property>
+    <property name="default-height">600</property>
+    <property name="resizable">false</property>
+    <child type="titlebar">
+      <object class="AdwHeaderBar" id="header_bar">
+        <property name="title-widget">
+          <object class="GtkBox">
+            <child>
+              <object class="GtkImage">
+                <property name="resource">/al/getcryst/jadegui/crystal-logo-minimal.png</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="margin-start">2</property>
+                <property name="label">&lt;span font_weight='bold'&gt;Jade&lt;/span&gt;</property>
+                <property name="use-markup">true</property>
+              </object>
+            </child>
+          </object>
+        </property>
+        <style>
+          <class name="flat"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="vexpand">true</property>
+        <property name="hexpand">true</property>
+        <child>
+          <object class="AdwCarouselIndicatorDots">
+            <property name="carousel">carousel</property>
+            <property name="orientation">vertical</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwCarousel" id="carousel">
+            <property name="orientation">horizontal</property>
+            <property name="vexpand">true</property>
+            <property name="hexpand">true</property>
+            <property name="allow-mouse-drag">true</property>
+            <property name="allow-scroll-wheel">true</property>
+            <property name="allow-long-swipes">true</property>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <property name="halign">center</property>
+                <property name="vexpand">true</property>
+                <property name="hexpand">true</property>
+                <child>
+                  <object class="GtkImage" id="crystal-logo">
+                    <property name="resource">/al/getcryst/jadegui/crystal-logo-minimal.png</property>
+                    <property name="pixel-size">200</property>
+                    <property name="margin-bottom">25</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="welcome">
+                    <property name="label">&lt;span font_weight='bold' font_size='20pt'&gt;Welcome to jade&lt;/span&gt;</property>
+                    <property name="use-markup">true</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="letsstart">
+                    <property name="label">Ready to make your Crystal installation... ready?</property>
+                    <property name="margin-bottom">25</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="vexpand">true</property>
+                    <property name="hexpand">true</property>
+                    <child>
+                      <object class="GtkButton" id="quitButton">
+                        <property name="label">No...</property>
+                        <property name="margin-end">12</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="nextButton">
+                        <property name="margin-start">12</property>
+                        <property name="label">YEAH!</property>
+                        <style>
+                          <class name="suggested-action"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwStatusPage" id="timezone_page">
+                <property name="title">Let's get started, shall we?</property>
+                <property name="description">What's your current timezone?</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkSearchBar" id="timezoneSearch">
+                        <child>
+                          <object class="GtkSearchEntry" id="entry_search">
+                            <property name="placeholder-text">Search for a timezone...</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPreferencesPage">
+                        <child>
+                          <object class="AdwPreferencesGroup">
+                            <child>
+                              <object class="GtkListBox" id="list_timezones">
+                                <property name="selection-mode">none</property>
+                                <style>
+                                  <class name="boxed-list"/>
+                                </style>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="margin-top">5</property>
+                                    <property name="margin-bottom">5</property>
+                                    <property name="label">test</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="margin-top">5</property>
+                                    <property name="margin-bottom">5</property>
+                                    <property name="label">test</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="margin-top">5</property>
+                                    <property name="margin-bottom">5</property>
+                                    <property name="label">test</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="margin-top">5</property>
+                                    <property name="margin-bottom">5</property>
+                                    <property name="label">test</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="margin-top">5</property>
+                                    <property name="margin-bottom">5</property>
+                                    <property name="label">test</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

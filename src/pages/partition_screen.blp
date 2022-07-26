@@ -1,0 +1,53 @@
+using Gtk 4.0;
+using Adw 1;
+
+template PartitionScreen : Adw.Bin {
+    vexpand: true;
+    hexpand: true;
+
+    Gtk.Box {
+        hexpand: true;
+        vexpand: true;
+        Adw.StatusPage {
+            hexpand: true;
+            vexpand: true;
+            title: "Now select the disk you want to install crystal on";
+            description: "This will wipe the entire disk you selected";
+            Adw.PreferencesPage {
+                Adw.PreferencesGroup {
+                    Gtk.ListBox partition_list {
+                        activate-on-single-click: true;
+                        styles ["boxed-list"]
+                    }
+                   // Gtk.ListBox {
+                   // 	margin-top: 10;
+                   //     Adw.ActionRow {
+                   //         title: "I will partition myself";
+                   //         Gtk.Box {
+                   //             Gtk.Button custom_partition {
+                   //                 label: "Continue";
+                   //                 margin-top: 5;
+                   //                 margin-bottom: 5;
+                   //             }
+                   //         }
+                   //     }
+                   //     styles ["boxed-list"]
+                   // }
+                }
+            }
+
+        }
+        Gtk.Overlay {
+            [overlay]
+            Gtk.Button next_page_button {
+                margin-end: 20;
+                margin-bottom: 20;
+                label: "Next";
+                halign: end;
+                valign: end;
+	        tooltip-text: "Move to next page";
+	        styles ["suggested-action"]
+            }
+        }
+    }
+}

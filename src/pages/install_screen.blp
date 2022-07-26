@@ -1,0 +1,37 @@
+using Gtk 4.0;
+using Adw 1;
+
+template InstallScreen : Adw.Bin {
+    hexpand: true;
+    vexpand: true;
+    Gtk.Box {
+        hexpand: true;
+        vexpand: true;
+        Adw.StatusPage {
+            hexpand: true;
+            vexpand: true;
+            title: "Installing Crystal";
+            description: "This may take some time";
+            Gtk.Box {
+                margin-end: 50;
+                margin-start: 50;
+                styles ["card"]
+                Gtk.ScrolledWindow {
+                    margin-start: 12;
+                    margin-end: 12;
+                    min-content-height: 200;
+                    overflow: hidden;
+                    Gtk.Label log_text {
+                        hexpand: true;
+                        vexpand: true;
+                        wrap: true;
+                        selectable: true;
+                        xalign: 0;
+                        yalign: 0;
+                        styles ["monospace", "terminal"]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+using Gtk 4.0;
+using Adw 1;
+
+template TimezoneScreen : Adw.Bin {
+    hexpand: true;
+    vexpand: true;
+    Gtk.Box {
+        vexpand: true;
+        hexpand: true;
+        Adw.StatusPage {
+            hexpand: true;
+            vexpand: true;
+            title: "Let's get started, shall we?";
+            description: "What's your curent timezone?";
+            Gtk.Box {
+                orientation: vertical;
+                Gtk.Box timezone_search {
+					        Gtk.SearchEntry timezone_entry_search {
+						        hexpand: true;
+						        //margin-bottom: 5;
+						        margin-end: 30;
+						        margin-start: 30;
+						        placeholder-text: _("Search for a timezone");
+					        }
+				        }
+                Adw.PreferencesPage {
+                    Adw.PreferencesGroup {
+                        Gtk.ListBox list_timezones {
+                            styles ["boxed-list"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

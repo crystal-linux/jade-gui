@@ -1,0 +1,36 @@
+using Gtk 4.0;
+using Adw 1;
+
+template DesktopScreen : Adw.Bin {
+    vexpand: true;
+    hexpand: true;
+    Gtk.Box {
+        vexpand: true;
+        hexpand: true;
+        Adw.StatusPage {
+            title: "Select a desktop";
+            description: "You can install more desktops later";
+            Adw.PreferencesPage {
+                Adw. PreferencesGroup {
+                    Gtk.ListBox list_desktops {
+                        hexpand: true;
+                        vexpand: true;
+                        styles ["boxed-list"]
+                    }
+                }
+            }
+        }
+        Gtk.Overlay {
+            [overlay]
+            Gtk.Button next_page_button {
+                margin-end: 20;
+                margin-bottom: 20;
+                label: "Next";
+                halign: end;
+                valign: end;
+	        tooltip-text: "Move to next page";
+	        styles ["suggested-action"]
+            }
+        }
+    }
+}

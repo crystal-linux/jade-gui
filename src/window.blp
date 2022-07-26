@@ -1,0 +1,78 @@
+using Gtk 4.0;
+using Adw 1;
+
+template JadeGuiWindow : Gtk.ApplicationWindow {
+    title: "Jade";
+    default-width: 600;
+    default-height: 600;
+    resizable: false;
+
+    [titlebar]
+    Adw.HeaderBar header_bar {
+        title-widget: Gtk.Box {
+            Adw.CarouselIndicatorDots {
+	        carousel: carousel;
+	        orientation: horizontal;
+	    }
+        };
+
+        [start]
+        Gtk.Button {
+            label: "Back";
+            //icon-name: ;
+        }
+
+    	styles ["flat"]
+    }
+    Gtk.Box {
+        orientation: horizontal;
+	vexpand: true;
+	hexpand: true;
+	Adw.Carousel carousel {
+	    orientation: horizontal;
+	    vexpand: true;
+	    hexpand: true;
+	    allow-mouse-drag: true;
+	    allow-scroll-wheel: true;
+	    allow-long-swipes: true;
+
+            Gtk.Box welcome_page {
+    	        orientation: vertical;
+    	        valign: center;
+    	        halign: center;
+    	        vexpand: true;
+    	        hexpand: true;
+
+    	        Gtk.Image crystal-logo {
+    	            resource: "/al/getcryst/jadegui/crystal-logo-minimal.png";
+    	            pixel-size: 200;
+    	            margin-bottom: 25;
+    	        }
+
+                Gtk.Label welcome {
+                    label: "<span font_weight='bold' font_size='20pt'>Welcome to jade</span>";
+                    use-markup: true;
+                }
+
+	        Gtk.Label letsstart {
+	            label: "Ready to make your Crystal installation... ready?";
+    	            margin-bottom: 28;
+    	        }
+
+                Gtk.Box  {
+                    orientation: horizontal;
+                    halign: center;
+                    valign: center;
+                    vexpand: true;
+                    hexpand: true;
+
+                    Gtk.Button next_button {
+                        margin-start: 12;
+                        label: "YEAH!";
+                        styles ["suggested-action", "pill"]
+                    }
+                }
+    	    }
+    	}
+    }
+}

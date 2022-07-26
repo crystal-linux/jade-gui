@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/al/getcryst/jadegui">
+    <file>window.ui</file>
+    <file>widgets/timezone.ui</file>
+    <file>widgets/layout.ui</file>
+    <file>widgets/variant.ui</file>
+    <file>widgets/desktop.ui</file>
+    <file>widgets/disk.ui</file>
+    <file>pages/keyboard_screen.ui</file>
+    <file>pages/timezone_screen.ui</file>
+    <file>pages/user_screen.ui</file>
+    <file>pages/desktop_screen.ui</file>
+    <file>pages/misc_screen.ui</file>
+    <file>pages/partition_screen.ui</file>
+    <file>pages/summary_screen.ui</file>
+    <file>pages/install_screen.ui</file>
+    <file>pages/finished_screen.ui</file>
+    <file>gtk/help-overlay.ui</file>
+    <file>crystal-logo-minimal.png</file>
+  </gresource>
+</gresources>

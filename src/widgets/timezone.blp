@@ -1,0 +1,14 @@
+using Gtk 4.0;
+using Adw 1;
+
+template TimezoneEntry : Adw.ActionRow {
+    title: "region/location";
+    Gtk.Box {
+    	spacing: 6;
+    	Gtk.Label time_label {
+    	    valign: center;
+	    label: "Current time";
+	    styles ["tag", "caption"]
+    	}
+    }
+}
