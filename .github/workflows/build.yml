@@ -21,7 +21,7 @@ jobs:
           run: sudo pacman -S --noconfirm flatpak-builder flatpak
 
         - name: setup flatpak
-          run: flatpak --remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          run: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
         - name: build jade gui
           run: flatpak-builder --repo=./build-repo --install-deps-from=flathub --force-clean build-dir al.getcryst.jadegui.yml
