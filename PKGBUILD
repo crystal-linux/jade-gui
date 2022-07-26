@@ -4,18 +4,18 @@ pkgrel=1
 pkgdesc="Libadwaita based gui frontend for jade"
 license=('GPL3')
 arch=('any')
-url="https://git.tar.black/crystal/programs/jade-gui"
+url="https://github.com/crystal-linux/jade-gui"
 depends=('jade' 'openssl' 'flatpak')
 makedepends=('flatpak-builder' 'flatpak')
 install=jadegui.install
-source=("gui::git+${url}.git")
+source=("git+${url}.git")
 sha256sums=('SKIP')
 
 
 
 build() {
-    cd ${srcdir}
-    flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+    cd ${srcdir}/jade-gui
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak-builder --repo=../build-repo --force-clean ../build-dir al.getcryst.jadegui.yml
     flatpak build-bundle ../build-repo --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo ../jade-gui.flatpak al.getcryst.jadegui
 }
@@ -27,4 +27,3 @@ package() {
     echo "#!/usr/bin/env bash\nflatpak run al.getcryst.jadegui" > ${pkgdir}/usr/bin/jade-gui
     chmod +x ${pkgdir}/usr/bin/jade-gui
 }
-
