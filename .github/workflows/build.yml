@@ -8,9 +8,10 @@ on:
                 default: 'No source specified'
 
 jobs:
-    runs-on: ubuntu-latest
-    container: docker.io/crystallinux/crystal:latest
-    steps:
+    build:
+      runs-on: ubuntu-latest
+      container: docker.io/crystallinux/crystal:latest
+      steps:
         - uses: actions/checkout@v3
 
         - name: install dependencies
