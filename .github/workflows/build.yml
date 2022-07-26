@@ -1,0 +1,37 @@
+name: Flatpak build
+on:
+    workflow_dispatch:
+        inputs:
+            source:
+                description: 'Source of event'
+                required: false
+                default: 'No source specified'
+
+jobs:
+    runs-on: ubuntu-latest
+    container: docker.io/crystallinux/crystal:latest
+    steps:
+        - uses: actions/checkout@v3
+
+        - name: install dependencies
+          run: sudo pacman -S flatpak-builder flatpak
+
+        - name: setup flatpak
+          run: flatpak --remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+        - name: build jade gui
+          run: flatpak-builder --repo=./build-repo --install-deps-from=flathub --force-clean build-dir al.getcryst.jadegui.yml
+
+        - name: export flatpak bundle
+          run: flatpak build-bundle ./build-repo --runtime-repo=https://flathub.org/repo.flathub.flatpakrepo jade-gui.flatpak al.getryst.jadegui
+
+	- name: set date for release
+	  run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+        - name: release bundle
+	  uses: djnicholson/release-action@v2.10
+	  token: ${{ secrets.FP_TOKEN }}
+	  release-name: jade gui build ${{ steps.date.outputs.date }}
+	  tag-name: ${{ steps.date.outputs.date }}
+	  asset-name: jade-gui-${{ steps.date.outputs.date }}.flatpak
+	  file: jade-gui.flatpak
