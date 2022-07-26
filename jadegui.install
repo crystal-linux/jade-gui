@@ -1,3 +1,10 @@
 post_install() {
-    flatpak install /usr/share/jade-gui/jade-gui.flatpak
+    flatpak install -y --noninteractive /usr/share/jade-gui/jade-gui.flatpak
 }
+
+post_upgrade() {
+    flatpak install -y --noninteractive /usr/share/jade-gui/jade-gui.flatpak
+}
+
+post_remove() {
+    flatpak remove -y --noninteractive al.getcryst.jadegui
