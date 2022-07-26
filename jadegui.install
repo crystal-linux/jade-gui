@@ -1,0 +1,3 @@
+post_install() {
+    flatpak install /usr/share/jade-gui/jade-gui.flatpak
+}
