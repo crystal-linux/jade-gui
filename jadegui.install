@@ -8,3 +8,4 @@ post_upgrade() {
 
 post_remove() {
     flatpak remove -y --noninteractive al.getcryst.jadegui
+}
