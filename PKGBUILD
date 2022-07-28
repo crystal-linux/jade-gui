@@ -16,7 +16,7 @@ sha256sums=('SKIP')
 build() {
     cd ${srcdir}/jade-gui
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    flatpak-builder --repo=../build-repo --force-clean ../build-dir al.getcryst.jadegui.yml
+    flatpak-builder --install-deps-from=flathub --repo=../build-repo --force-clean ../build-dir al.getcryst.jadegui.yml
     flatpak build-bundle ../build-repo --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo ../jade-gui.flatpak al.getcryst.jadegui
 }
 
