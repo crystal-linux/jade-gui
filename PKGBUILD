@@ -1,6 +1,6 @@
 pkgname=jade-gui
 pkgver=1.1.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Libadwaita based gui frontend for jade"
 license=('GPL3')
 arch=('any')
