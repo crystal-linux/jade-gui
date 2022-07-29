@@ -7,7 +7,6 @@ arch=('any')
 url="https://github.com/crystal-linux/jade-gui"
 depends=('jade' 'openssl' 'flatpak')
 makedepends=('flatpak-builder' 'flatpak')
-install=jadegui.install
 source=("git+${url}.git")
 sha256sums=('SKIP')
 
