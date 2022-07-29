@@ -11,8 +11,6 @@ install=jadegui.install
 source=("git+${url}.git")
 sha256sums=('SKIP')
 
-
-
 build() {
     cd ${srcdir}/jade-gui
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -24,6 +22,6 @@ package() {
     mkdir -p ${pkgdir}/usr/share/jade-gui
     mkdir -p ${pkgdir}/usr/bin/
     cp jade-gui.flatpak ${pkgdir}/usr/share/jade-gui/jade-gui.flatpak
-    echo "#!/usr/bin/env bash\nflatpak run al.getcryst.jadegui" > ${pkgdir}/usr/bin/jade-gui
+    echo -e "#!/usr/bin/env bash\nflatpak run al.getcryst.jadegui" > ${pkgdir}/usr/bin/jade-gui
     chmod +x ${pkgdir}/usr/bin/jade-gui
 }
