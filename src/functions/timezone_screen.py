@@ -61,7 +61,7 @@ class TimezoneScreen(Adw.Bin):
         else:
             self.carousel.scroll_to(self.next_page, True)
 
-    def carousel_next_summary(self):
+    def carousel_next_summary(self, widget):
         self.next_page.move_to_summary=True
         self.carousel.scroll_to(self.next_page, True)
 
@@ -79,3 +79,4 @@ class TimezoneScreen(Adw.Bin):
         except:
             return True
         return False
+

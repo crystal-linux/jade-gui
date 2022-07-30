@@ -71,7 +71,7 @@ class SummaryScreen(Adw.Bin):
         self.sudo_button.connect("clicked", self.window.keyboard_screen.carousel_next_summary)
         self.root_button.connect("clicked", self.window.keyboard_screen.carousel_next_summary)
         self.desktop_button.connect("clicked", self.window.user_screen.carousel_next_summary)
-        self.partition_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
+        self.partition_button.connect("clicked", self.window.misc_screen.carousel_next_summary)
         self.ipv_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
         self.timeshift_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
 
@@ -110,3 +110,4 @@ class SummaryScreen(Adw.Bin):
             desktop=self.window.desktop_screen.chosen_desktop,
         )
         
+
