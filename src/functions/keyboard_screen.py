@@ -87,7 +87,8 @@ class KeyboardScreen(Adw.Bin):
         else:
             print("row is none!! variant")
 
-    def carousel_next(self):
+    def carousel_next(self, widget=None):
+        self.window.set_previous_page(self.window.timezone_screen)
         if self.move_to_summary:
             self.window.summary_screen.initialize()
             self.carousel.scroll_to(self.window.summary_screen, True)
@@ -109,3 +110,4 @@ class KeyboardScreen(Adw.Bin):
             print("exception")
             return True
         return False
+

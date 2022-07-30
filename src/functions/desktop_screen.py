@@ -41,6 +41,7 @@ class DesktopScreen(Adw.Bin):
         self.next_page_button.connect("clicked", self.carousel_next)
 
     def carousel_next(self, widget):
+        self.window.set_previous_page(self.window.user_screen)
         if self.move_to_summary:
             self.window.summary_screen.initialize()
             self.carousel.scroll_to(self.window.summary_screen, True)
@@ -52,9 +53,10 @@ class DesktopScreen(Adw.Bin):
         self.carousel.scroll_to(self.next_page, True)
 
     def selected_desktop(self, widget, row):
-            if row is not None:
-                print(row.get_title())
-                self.chosen_desktop = row.get_title()
-                row.select_button.set_active(True)
-            else:
-                print("row is none!!")
+        if row is not None:
+            print(row.get_title())
+            self.chosen_desktop = row.get_title()
+            row.select_button.set_active(True)
+        else:
+            print("row is none!!")
+

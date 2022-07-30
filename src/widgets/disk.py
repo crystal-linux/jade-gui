@@ -33,15 +33,21 @@ class DiskEntry(Adw.ActionRow):
         self.disk = disk
         self.disk_size = disk_size
         self.disk_type = disk_type
-        self.set_title(disk.strip('/dev/'))
+        self.set_title(disk[5:])
         self.set_subtitle(disk_type)
         self.size_label.set_label("Disk Size: "+disk_size)
-        self.select_button.set_group(button_group)
+        if button_group is not None:
+            self.select_button.set_group(button_group)
+        else:
+            self.select_button.set_active(True)
         self.select_button.connect("toggled", self.toggled_cb)
 
     def toggled_cb(self, check_button):
-        if check_button.props.active:
-            row = check_button.get_ancestor(Gtk.ListBoxRow)
+        row = check_button.get_ancestor(Gtk.ListBoxRow)
+        if check_button.props.active and len(self.window.available_disks) != 1:
             row.emit('activate')
             self.selected_partition = row.get_title()
+        elif len(self.window.available_disks) != 1:
+            self.selcted_partition = row.get_title()
+
 

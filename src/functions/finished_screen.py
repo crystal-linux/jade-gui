@@ -18,6 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+import subprocess
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
 
@@ -25,5 +26,11 @@ from gettext import gettext as _
 class FinishedScreen(Adw.Bin):
     __gtype_name__='FinishedScreen'
 
+    reboot_button = Gtk.Template.Child()
+
     def __init__(self, window, application, **kwargs):
         super().__init__(**kwargs)
+        self.reboot_button.connect("clicked", self.reboot)
+
+    def reboot(self, widget):
+        command=subprocess.run(["bash", "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/reboot.sh"], capture_output=False)
