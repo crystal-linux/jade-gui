@@ -59,13 +59,14 @@ class SummaryScreen(Adw.Bin):
         self.next_page_button.connect("clicked", self.carousel_next)
 
     def carousel_next(self, widget):
+        self.window.set_previous_page(None)
         self.main_carousel.scroll_to(self.next_page, True)
         #(self.window.installer_screen.install())
         subprocess.run(["bash", "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
-        RunAsync(self.window.installer_screen.install)
+        RunAsync(self.window.installer_screen.install, callback=self.window.installer_screen.carousel_next)
 
     def initialize(self):
-        self.timezone_button.connect("clicked", self.window.nextPage)
+        self.timezone_button.connect("clicked", self.window.carousel_next)
         self.keyboard_button.connect("clicked", self.window.timezone_screen.carousel_next_summary)
         self.username_button.connect("clicked", self.window.keyboard_screen.carousel_next_summary)
         self.sudo_button.connect("clicked", self.window.keyboard_screen.carousel_next_summary)

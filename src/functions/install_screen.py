@@ -31,6 +31,8 @@ class InstallScreen(Adw.Bin):
     def __init__(self, window, main_carousel, next_page, application, **kwargs):
         super().__init__(**kwargs)
         self.window = window
+        self.main_carousel = main_carousel
+        self.next_page = next_page
 
     def install(self):
         prefs = self.window.summary_screen.installprefs.generate_json()
@@ -44,7 +46,11 @@ class InstallScreen(Adw.Bin):
                     pass
                 f.write(c)
 
+    def carousel_next(self, result, error=None):
+        self.main_carousel.scroll_to(self.next_page, True)
+
     def update_output(self, message):
         log=self.log_text.get_label()
         new_log=f"{log}{message}"
         self.log_text.set_label(new_log)
+

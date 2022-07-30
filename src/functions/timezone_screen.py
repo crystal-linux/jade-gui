@@ -54,7 +54,8 @@ class TimezoneScreen(Adw.Bin):
             else:
                 print("row is none!!")
 
-    def carousel_next(self):
+    def carousel_next(self, widget=None):
+        self.window.set_previous_page(self.window)
         if self.move_to_summary:
             self.window.summary_screen.initialize()
             self.carousel.scroll_to(self.window.summary_screen, True)

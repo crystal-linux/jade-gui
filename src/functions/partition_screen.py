@@ -48,5 +48,6 @@ class PartitionScreen(Adw.Bin):
             print("ERROR: invalid row slected")
 
     def carousel_next(self, widget):
+        self.window.set_previous_page(self.window.misc_screen)
         self.window.summary_screen.initialize()
         self.carousel.scroll_to(self.next_page, True)

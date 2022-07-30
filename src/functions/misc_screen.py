@@ -44,6 +44,7 @@ class MiscScreen(Adw.Bin):
         self.next_page_button.connect("clicked", self.carousel_next)
 
     def carousel_next(self, widget):
+        self.window.set_previous_page(self.window.desktop_screen)
         self.hostname = self.hostname_entry.get_text()
         self.ipv_enabled = self.ipv_switch.get_state()
         #self.crystal_theming_enabled = self.theme_switch.get_state()

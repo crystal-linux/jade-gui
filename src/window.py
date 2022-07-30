@@ -49,6 +49,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
     welcome_page = Gtk.Template.Child()
   #  quit_button = Gtk.Template.Child()
     next_button = Gtk.Template.Child()
+    back_button = Gtk.Template.Child()
 
 
 
@@ -75,8 +76,11 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         ### Widgets for first page (welcome screen)
         #self.quit_button.connect("clicked", self.confirmQuit)
         #self.summary_screen.connect_buttons()
-        self.next_button.connect("clicked", self.nextPage)
+        self.next_button.connect("clicked", self.carousel_next)
+        self.back_button.connect("clicked", self.previousPage)
         ### ---------
+        self.previous_page = None
+        self.set_previous_page(None)
 
         ### Test timezones
         for i in locations:
@@ -106,20 +110,20 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         ### ---------
 
         ### Test partitions
-        available_disks = disks.get_disks()
+        self.available_disks = disks.get_disks()
         firstdisk = DiskEntry(
             window=self,
-            disk=available_disks[0],
-            disk_size=disks.get_disk_size(available_disks[0]),
-            disk_type=disks.get_disk_type(available_disks[0]),
+            disk=self.available_disks[0],
+            disk_size=disks.get_disk_size(self.available_disks[0]),
+            disk_type=disks.get_disk_type(self.available_disks[0]),
             #disk_model=disks.get_disk_model(available_disks[0]),
             button_group=None,
             **kwargs
         )
         self.partition_screen.partition_list.append(firstdisk)
         firstdisk.toggled_cb(firstdisk.select_button)
-        for disk in available_disks:
-            if disk != available_disks[0]:
+        for disk in self.available_disks:
+            if disk != self.available_disks[0]:
                 self.partition_screen.partition_list.append(
                     DiskEntry(
                         window=self,
@@ -134,7 +138,19 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
 
         ### ---------
 
-    def nextPage(self, idk):
+    def set_previous_page(self, previous_page):
+        if previous_page is None:
+            self.back_button.set_visible(False)
+        else:
+            self.back_button.set_visible(True)
+        self.previous_page = previous_page
+
+    def previousPage(self, widget):
+        if self.previous_page is not None:
+            self.previous_page.carousel_next(widget)
+
+    def carousel_next(self, widget):
+        self.set_previous_page(None)
         self.carousel.scroll_to(self.timezone_screen, True)
 
     def confirmQuit(self, idk):
@@ -171,3 +187,4 @@ class AboutDialog(Gtk.AboutDialog):
         self.props.logo_icon_name = 'al.getcryst.jadegui'
         self.props.modal = True
         self.set_transient_for(parent)
+
