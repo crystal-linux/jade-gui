@@ -1,4 +1,4 @@
-app-id: al.getcryst.jadegui
+app-id: al.getcryst.jade-gui
 runtime: org.gnome.Platform
 runtime-version: '42'
 sdk: org.gnome.Sdk
@@ -10,6 +10,7 @@ finish-args:
     - --socket=fallback-x11
     - --device=dri
     - --socket=wayland
+    - --talk-name=org.freedesktop.Flatpak
 #    - --socket=session-bus
 
 cleanup:
