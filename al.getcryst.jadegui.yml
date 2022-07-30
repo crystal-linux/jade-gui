@@ -1,4 +1,4 @@
-app-id: al.getcryst.jade-gui
+app-id: al.getcryst.jadegui
 runtime: org.gnome.Platform
 runtime-version: '42'
 sdk: org.gnome.Sdk
