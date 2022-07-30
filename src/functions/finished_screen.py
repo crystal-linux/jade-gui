@@ -33,4 +33,5 @@ class FinishedScreen(Adw.Bin):
         self.reboot_button.connect("clicked", self.reboot)
 
     def reboot(self, widget):
-        command=subprocess.run(["bash", "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/reboot.sh"], capture_output=False)
+        command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/reboot.sh"], capture_output=False)
+
