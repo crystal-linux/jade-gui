@@ -77,7 +77,8 @@ class InstallPrefs:
                 {
                     '"name"': '"'+self.username+'"',
                     '"password"': '"'+self.password+'"',
-                    '"hasroot"': self.enable_sudo
+                    '"hasroot"': self.enable_sudo,
+                    '"shell"': '"zsh"'
                 }
             ],
             '"rootpass"': '"'+self.password+'"',
