@@ -1,13 +1,7 @@
 using Gtk 4.0;
 using Adw 1;
 
-template KeyboardLayout : Adw.ActionRow {
+template KeyboardLayout : Adw.ExpanderRow {
     title: "Country";
     subtitle: "Country Code";
-    Gtk.Box {
-    	spacing: 6;
-    	Gtk.Image {
-    	    icon-name: "go-next-symbolic";
-    	}
-    }
 }

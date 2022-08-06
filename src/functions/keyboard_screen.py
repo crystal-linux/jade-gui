@@ -27,18 +27,8 @@ from gettext import gettext as _
 class KeyboardScreen(Adw.Bin):
     __gtype_name__ = 'KeyboardScreen'
 
-    layout_event_controller = Gtk.EventControllerKey.new()
-    variant_event_controller = Gtk.EventControllerKey.new()
-
-    keyboard_carousel = Gtk.Template.Child()
-    list_keyboard_layouts = Gtk.Template.Child()
-    list_keyboard_variants = Gtk.Template.Child()
-    keyboard_layouts = Gtk.Template.Child()
-    keyboard_variants = Gtk.Template.Child()
-    layout_search = Gtk.Template.Child()
-    layout_entry_search = Gtk.Template.Child()
-    variant_search = Gtk.Template.Child()
-    variant_entry_search = Gtk.Template.Child()
+    next_page_button = Gtk.Template.Child()
+    layout_list = Gtk.Template.Child()
 
     layout = None
     variant = ""
@@ -49,43 +39,7 @@ class KeyboardScreen(Adw.Bin):
         self.window = window
         self.carousel = main_carousel
         self.next_page = next_page
-        self.list_keyboard_layouts.connect("row-selected", self.selected_layout)
-        self.list_keyboard_variants.connect("row-selected", self.selected_variant)
-        self.layout_event_controller.connect("key-released", self.search_layouts)
-        self.variant_event_controller.connect("key-released", self.search_variants)
-        self.layout_entry_search.add_controller(self.layout_event_controller)
-        self.variant_entry_search.add_controller(self.variant_event_controller)
-
-    def search_layouts(self, *args):
-        terms = self.layout_entry_search.get_text()
-        self.list_keyboard_layouts.set_filter_func(self.filter_text, terms)
-
-    def search_variants(self, *args):
-        print("in variant")
-        terms = self.variant_entry_search.get_text()
-        self.list_keyboard_variants.set_filter_func(self.filter_text, terms)
-
-    def selected_layout(self, widget, row, *args):
-        if row is not None or row is not self.layout_entry_search:
-            if self.layout is not None:
-                for n in range(len(self.layout.variants)):
-                    print(n)
-                    print(self.list_keyboard_variants.get_row_at_index(n))
-                    if self.list_keyboard_variants.get_row_at_index(n) is not None:
-                        self.list_keyboard_variants.remove(self.list_keyboard_variants.get_row_at_index(n))
-            self.layout = row
-            for variant in row.variants:
-                self.list_keyboard_variants.append(KeyboardVariant(window=self.window, country=row.country, country_shorthand=row.country_shorthand, variant=variant, *args))
-            self.keyboard_carousel.scroll_to(self.keyboard_variants, True)
-        else:
-            print("row is none!! layout")
-
-    def selected_variant(self, widget, row):
-        if row is not None or row is not self.variant_entry_search:
-            self.variant = row
-            self.carousel_next()
-        else:
-            print("row is none!! variant")
+        self.next_page_button.connect("clicked", self.carousel_next)
 
     def carousel_next(self, widget=None):
         self.window.set_previous_page(self.window.timezone_screen)
@@ -98,16 +52,4 @@ class KeyboardScreen(Adw.Bin):
     def carousel_next_summary(self, widget):
         self.next_page.move_to_summary=True
         self.carousel.scroll_to(self.next_page, True)
-
-    @staticmethod
-    def filter_text(row, terms=None):
-        try:
-            text = row.get_title()
-            text = text.lower() + row.get_subtitle().lower()
-            if terms.lower() in text:
-                return True
-        except:
-            print("exception")
-            return True
-        return False
 

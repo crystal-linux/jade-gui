@@ -21,18 +21,22 @@ from gi.repository import Gtk, GLib, Adw
 from gettext import gettext as _
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/widgets/layout.ui')
-class KeyboardLayout(Adw.ActionRow):
+class KeyboardLayout(Adw.ExpanderRow):
     __gtype_name__ = 'KeyboardLayout'
 
     variants=[]
 
     def __init__(self, window, country, country_shorthand, variants, application, **kwargs):
         super().__init__(**kwargs)
-
+        self.window=window
         self.country = country
         self.country_shorthand = country_shorthand
 
         self.set_title(country)
         self.set_subtitle(country_shorthand)
         self.variants = variants
+        self.connect("activate", self.selected)
 
+    def selected(self, widget):
+        print("selected")
+        self.window.keyboard_screen.selected_layout(widget=widget, row=self)

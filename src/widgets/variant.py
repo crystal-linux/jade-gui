@@ -24,13 +24,20 @@ from gettext import gettext as _
 class KeyboardVariant(Adw.ActionRow):
     __gtype_name__ = 'KeyboardVariant'
 
-    def __init__(self, window, variant, country, country_shorthand, **kwargs):
-        super().__init__(**kwargs)
+    select_variant = Gtk.Template.Child()
 
+    def __init__(self, window, variant, country, country_shorthand, button_group, application, **kwargs):
+        super().__init__(**kwargs)
+        self.window=window
         self.variant = variant
         self.country = country
         self.country_shorthand = country_shorthand
 
         self.set_title(variant)
         self.set_subtitle(country+" - "+country_shorthand)
+        self.select_variant.set_group(button_group)
+        self.select_variant.connect("toggled", self.selected)
+
+    def selected(self, widget):
+        self.window.keyboard_screen.variant=self
 

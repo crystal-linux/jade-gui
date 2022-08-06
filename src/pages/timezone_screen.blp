@@ -15,14 +15,14 @@ template TimezoneScreen : Adw.Bin {
             Gtk.Box {
                 orientation: vertical;
                 Gtk.Box timezone_search {
-					        Gtk.SearchEntry timezone_entry_search {
-						        hexpand: true;
-						        //margin-bottom: 5;
-						        margin-end: 30;
-						        margin-start: 30;
-						        placeholder-text: _("Search for a timezone");
-					        }
-				        }
+					Gtk.SearchEntry timezone_entry_search {
+						hexpand: true;
+						//margin-bottom: 5;
+						margin-end: 30;
+						margin-start: 30;
+						placeholder-text: _("Search for a timezone");
+					}
+				}
                 Adw.PreferencesPage {
                     Adw.PreferencesGroup {
                         Gtk.ListBox list_timezones {
@@ -30,6 +30,18 @@ template TimezoneScreen : Adw.Bin {
                         }
                     }
                 }
+            }
+        }
+        Gtk.Overlay {
+            [overlay]
+            Gtk.Button next_page_button {
+                margin-end: 20;
+                margin-bottom: 20;
+                label: "Next";
+                halign: end;
+                valign: end;
+	        tooltip-text: "Move to next page";
+	        styles ["suggested-action"]
             }
         }
     }
