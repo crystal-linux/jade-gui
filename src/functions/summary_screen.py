@@ -79,7 +79,7 @@ class SummaryScreen(Adw.Bin):
         self.timezone_label.set_title(self.window.timezone_screen.chosen_timezone.region+"/"+self.window.timezone_screen.chosen_timezone.location)
         self.timezone_label.set_subtitle(self.window.timezone_screen.chosen_timezone.locale)
 
-        self.keyboard_label.set_title(self.window.keyboard_screen.layout.country)
+        self.keyboard_label.set_title(self.window.keyboard_screen.variant.country)
         self.keyboard_label.set_subtitle(self.window.keyboard_screen.variant.variant)
 
         self.username_label.set_title(self.window.user_screen.username)
@@ -99,7 +99,7 @@ class SummaryScreen(Adw.Bin):
         
         self.installprefs = InstallPrefs(
             timezone=self.window.timezone_screen.chosen_timezone,
-            layout=self.window.keyboard_screen.layout,
+            layout=self.window.keyboard_screen.variant,
             variant=self.window.keyboard_screen.variant,
             username=self.window.user_screen.username,
             password=self.window.user_screen.password,

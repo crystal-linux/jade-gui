@@ -46,8 +46,6 @@ class DiskEntry(Adw.ActionRow):
         row = check_button.get_ancestor(Gtk.ListBoxRow)
         if check_button.props.active and len(self.window.available_disks) != 1:
             row.emit('activate')
-            self.selected_partition = row.get_title()
-        elif len(self.window.available_disks) != 1:
-            self.selcted_partition = row.get_title()
+        self.window.partition_screen.selected_partition = self
 
 

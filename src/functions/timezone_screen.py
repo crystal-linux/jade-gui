@@ -31,6 +31,7 @@ class TimezoneScreen(Adw.Bin):
     list_timezones = Gtk.Template.Child()
     timezone_entry_search = Gtk.Template.Child()
     timezone_search = Gtk.Template.Child()
+    next_page_button = Gtk.Template.Child()
 
     chosen_timezone = None
     move_to_summary = False
@@ -44,15 +45,15 @@ class TimezoneScreen(Adw.Bin):
         self.event_controller.connect("key-released", self.search_timezones)
         self.timezone_entry_search.add_controller(self.event_controller)
         self.list_timezones.connect("row-selected", self.selected_timezone)
+        self.next_page_button.connect("clicked", self.carousel_next)
 
     def selected_timezone(self, widget, row):
-            print(row)
-            if row is not None or row is not self.timezone_search:
-                print(row.get_title())
-                self.chosen_timezone = row
-                self.carousel_next()
-            else:
-                print("row is none!!")
+        print(row)
+        if row is not None or row is not self.timezone_search:
+            print(row.get_title())
+            self.chosen_timezone = row
+        else:
+            print("row is none!!")
 
     def carousel_next(self, widget=None):
         self.window.set_previous_page(self.window)
