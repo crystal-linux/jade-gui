@@ -105,14 +105,13 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         ### ---------
 
         ### Test desktops
-        onyx = DesktopEntry(window=self, desktop="Onyx", button_group=None, **kwargs) # Manually specifying onyx since the other entries need a button group to attach to
-        self.desktop_screen.list_desktops.append(onyx)
+        firstdesktop = DesktopEntry(window=self, desktop=desktops[0], button_group=None, **kwargs) # Manually specifying onyx since the other entries need a button group to attach to
+        self.desktop_screen.list_desktops.append(firstdesktop)
         self.desktop_screen.chosen_desktop = self.desktop_screen.list_desktops.get_row_at_index(0).get_title()
-        self.desktop_screen.list_desktops.select_row(onyx)
+        self.desktop_screen.list_desktops.select_row(firstdesktop)
         for desktop in desktops:
-            if desktop != "Onyx":
-                #print(desktop)
-                self.desktop_screen.list_desktops.append(DesktopEntry(window=self, desktop=desktop, button_group=onyx.select_button, **kwargs))
+            if desktop != desktops[0]:
+                self.desktop_screen.list_desktops.append(DesktopEntry(window=self, desktop=desktop, button_group=firstdesktop.select_button, **kwargs))
         ### ---------
 
         ### Test partitions
