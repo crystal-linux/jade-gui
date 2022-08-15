@@ -23,7 +23,7 @@
 <p align="center"> The libadwaita/gtk based gui installer using jade as the backend.
 </p>
 
-<p align="center"><a  href="https://github.com/crystal-linux/demos-mockups/blob/main/preview.pdf">The jade gui mockups</p></a>
+<p align="center"><a  href="https://github.com/crystal-linux/demos-mockups/blob/main/jade_gui/preview.pdf">The jade gui mockups</p></a>
 
 
 ![](main-page-screenshot.png)
