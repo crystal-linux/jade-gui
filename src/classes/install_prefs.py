@@ -34,6 +34,7 @@ class InstallPrefs:
         ipv_enabled,
         timeshift_enable,
         desktop,
+        zramd_enable,
     ):
         self.timezone = timezone
         self.layout = layout
@@ -46,6 +47,7 @@ class InstallPrefs:
         self.ipv_enabled = ipv_enabled
         self.timeshift_enable = timeshift_enable
         self.desktop = desktop
+        self.zramd_enable = zramd_enable
         self.is_efi = disks.get_uefi()
         self.bootloader_type = "grub-efi" if self.is_efi else "grub-legacy"
         self.bootloader_location = "/boot/efi" if self.is_efi else self.disk
@@ -86,6 +88,7 @@ class InstallPrefs:
             '"timeshift"': self.timeshift_enable,
             '"extra_packages"': [],
             '"flatpak"': True,
+            '"zramd"': self.zramd_enable,
             '"unakite"': {
                 '"enable"': False,
                 '"root"': '"/dev/null"',

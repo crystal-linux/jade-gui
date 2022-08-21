@@ -49,7 +49,8 @@ class SummaryScreen(Adw.Bin):
     ipv_button = Gtk.Template.Child()
     timeshift_label = Gtk.Template.Child()
     timeshift_button = Gtk.Template.Child()
-    #unakite_label = Gtk.Template.Child()
+    zramd_label = Gtk.Template.Child()
+    zramd_button = Gtk.Template.Child()
 
     def __init__(self, window, main_carousel, next_page, application, **kwargs):
         super().__init__(**kwargs)
@@ -61,7 +62,6 @@ class SummaryScreen(Adw.Bin):
     def carousel_next(self, widget):
         self.window.set_previous_page(None)
         self.main_carousel.scroll_to(self.next_page, True)
-        #(self.window.installer_screen.install())
         subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
         RunAsync(self.window.installer_screen.install, callback=self.window.installer_screen.carousel_next)
 
@@ -75,6 +75,7 @@ class SummaryScreen(Adw.Bin):
         self.partition_button.connect("clicked", self.window.misc_screen.carousel_next_summary)
         self.ipv_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
         self.timeshift_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
+        self.zramd_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
 
         self.timezone_label.set_title(self.window.timezone_screen.chosen_timezone.region+"/"+self.window.timezone_screen.chosen_timezone.location)
         self.timezone_label.set_subtitle(self.window.timezone_screen.chosen_timezone.locale)
@@ -94,7 +95,7 @@ class SummaryScreen(Adw.Bin):
 
         self.ipv_label.set_title("ipv6 enabled" if self.window.misc_screen.ipv_enabled else "ipv6 disabled")
         self.timeshift_label.set_title("timeshift enabled" if self.window.misc_screen.timeshift_enabled else "timeshift disabled")
-        #self.theme_label.set_title("Crystal theming enabled" if self.window.misc_screen.crystal_theming_enabled else "Crystal theming disabled")
+        self.zramd_label.set_title("zramd enabled" if self.window.misc_screen.zramd_enabled else "zramd disabled")
         #self.unakite_label.set_title("Unakite enabled "+"enabled" if self.window.misc_screen.)
         
         self.installprefs = InstallPrefs(
@@ -109,6 +110,7 @@ class SummaryScreen(Adw.Bin):
             ipv_enabled=self.window.misc_screen.ipv_enabled,
             timeshift_enable=self.window.misc_screen.timeshift_enabled,
             desktop=self.window.desktop_screen.chosen_desktop,
+            zramd_enable=self.window.misc_screen.zramd_enabled,
         )
         
 
