@@ -38,4 +38,4 @@ class DesktopEntry(Adw.ActionRow):
             row = check_button.get_ancestor(Gtk.ListBoxRow)
             row.activate()
             self.selected_partition = row.get_title()
-
+            self.window.desktop_screen.selected_desktop(self, row)
