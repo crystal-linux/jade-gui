@@ -33,6 +33,6 @@ jade gui relies on a yet unreleased version of libadwaita, that's why you have t
 ```sh
 git clone https://github.com/crystal-linux/jade_gui
 cd jade_gui
-flatpak-builder --user --install --install-deps-from=flathub --force-clean build-dir al.getcryst.jadegui 
+flatpak-builder --user --install --install-deps-from=flathub --force-clean build-dir al.getcryst.jadegui.yml
 flatpak run al.getcryst.jadegui.yml
 ```
