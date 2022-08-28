@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="KeyboardVariant" parent="AdwActionRow">
+    <property name="title">Variant</property>
+    <property name="subtitle">Country - Country code</property>
+    <child>
+      <object class="GtkBox">
+        <child>
+          <object class="GtkCheckButton" id="select_variant">
+            <property name="use-underline">true</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

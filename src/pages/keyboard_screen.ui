@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="KeyboardScreen" parent="AdwBin">
+    <property name="hexpand">true</property>
+    <property name="vexpand">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="vexpand">true</property>
+        <property name="hexpand">true</property>
+        <child>
+          <object class="AdwStatusPage">
+            <property name="hexpand">true</property>
+            <property name="vexpand">true</property>
+            <property name="title">Next question: keyboard layout?</property>
+            <property name="description">What is it? Huh?</property>
+            <child>
+              <object class="AdwPreferencesPage">
+                <child>
+                  <object class="AdwPreferencesGroup" id="layout_list">
+                    <property name="hexpand">true</property>
+                    <property name="margin-end">20</property>
+                    <property name="margin-start">20</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkOverlay">
+            <child type="overlay">
+              <object class="GtkButton" id="next_page_button">
+                <property name="margin-end">20</property>
+                <property name="margin-bottom">20</property>
+                <property name="label">Next</property>
+                <property name="halign">end</property>
+                <property name="valign">end</property>
+                <property name="tooltip-text">Move to next page</property>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

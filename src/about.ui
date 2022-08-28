@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+<requires lib="gtk" version="4.0"/>
+  <object class="AdwAboutWindow" id="aboutWindow">
+    <property name="application-name">Jade GUI</property>
+    <property name="application-icon">al.getcryst.jadegui</property>
+    <property name="modal">True</property>
+    <property name="version">1.1.4-2</property>
+    <property name="comments">Easily install Crystal Linux</property>
+    <property name="website">https://getcryst.al</property>
+    <property name="issue-url">https://github.com/crystal-linux/jade-gui/issues</property>
+    <property name="license-type">gpl-3.0-only</property>
+    <property name="developer-name">Crystal Linux dev team</property>
+    <property name="developers">axtlos https://github.com/axtloss
+Michal https://github.com/not-my-segfault
+Matt https://github.com/SomethingGeneric
+Mirko Brombin https://github.com/mirkobrombin</property>
+    <property name="artists">jasio https://github.com/hericiumvevo</property>
+  </object>
+</interface>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="TimezoneEntry" parent="AdwActionRow">
+    <property name="title">region/location</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel" id="time_label">
+            <property name="valign">center</property>
+            <property name="label">Current time</property>
+            <style>
+              <class name="tag"/>
+              <class name="caption"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

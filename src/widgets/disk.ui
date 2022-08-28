@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="DiskEntry" parent="AdwActionRow">
+    <property name="title">Disk</property>
+    <property name="subtitle">Disk type</property>
+    <property name="activatable-widget">select_button</property>
+    <child>
+      <object class="GtkBox">
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkLabel" id="size_label">
+            <property name="valign">center</property>
+            <property name="label">Disk size</property>
+            <style>
+              <class name="tag"/>
+              <class name="caption"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="margin-top">12</property>
+            <property name="margin-bottom">12</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="select_button">
+            <property name="use-underline">true</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

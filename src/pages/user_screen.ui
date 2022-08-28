@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="UserScreen" parent="AdwBin">
+    <property name="hexpand">true</property>
+    <property name="vexpand">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="vexpand">true</property>
+        <property name="hexpand">true</property>
+        <child>
+          <object class="AdwStatusPage">
+            <property name="hexpand">true</property>
+            <property name="vexpand">true</property>
+            <property name="title">Create your user</property>
+            <property name="description">You can add more users in the settings on the installed system</property>
+            <child>
+              <object class="AdwPreferencesPage">
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwEntryRow" id="username_entry">
+                        <property name="title">Enter your username</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPasswordEntryRow" id="password_entry">
+                        <property name="title">Enter your password</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwPasswordEntryRow" id="password_confirmation">
+                        <property name="title">Repeat your password</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkListBox">
+                        <property name="margin-top">7</property>
+                        <style>
+                          <class name="boxed-list"/>
+                        </style>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Enable administrative rights for user</property>
+                            <property name="subtitle">Allows the user to use sudo</property>
+                            <child>
+                              <object class="GtkSwitch" id="enable_sudo_switch">
+                                <property name="valign">center</property>
+                                <property name="state">true</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Enable superuser account</property>
+                            <property name="subtitle">Allows using the root user</property>
+                            <child>
+                              <object class="GtkSwitch" id="enable_root_switch">
+                                <property name="valign">center</property>
+                                <property name="state">false</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkOverlay">
+            <child type="overlay">
+              <object class="GtkButton" id="next_page_button">
+                <property name="margin-end">20</property>
+                <property name="margin-bottom">20</property>
+                <property name="label">Next</property>
+                <property name="halign">end</property>
+                <property name="valign">end</property>
+                <property name="tooltip-text">Move to next page</property>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

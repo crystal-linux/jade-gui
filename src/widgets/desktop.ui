@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="DesktopEntry" parent="AdwActionRow">
+    <property name="title">DesktopEntry</property>
+    <child>
+      <object class="GtkBox">
+        <child>
+          <object class="GtkCheckButton" id="select_button">
+            <property name="use-underline">true</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

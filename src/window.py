@@ -17,8 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from gi.repository import Gtk
-from gi.repository import Gdk
+from gi.repository import Gtk, Gdk, Adw
 from .widgets.timezone import TimezoneEntry
 from .widgets.layout import KeyboardLayout
 from .widgets.variant import KeyboardVariant
@@ -50,7 +49,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
   #  quit_button = Gtk.Template.Child()
     next_button = Gtk.Template.Child()
     back_button = Gtk.Template.Child()
-
+    about_button = Gtk.Template.Child()
 
 
     def __init__(self, **kwargs):
@@ -78,6 +77,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         #self.summary_screen.connect_buttons()
         self.next_button.connect("clicked", self.carousel_next)
         self.back_button.connect("clicked", self.previousPage)
+        self.about_button.connect("clicked", self.show_about)
         ### ---------
         self.previous_page = None
         self.set_previous_page(None)
@@ -177,19 +177,8 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         dialog.connect("response", handle_response)
         dialog.present()
 
-
-
-
-
-class AboutDialog(Gtk.AboutDialog):
-
-    def __init__(self, parent):
-        Gtk.AboutDialog.__init__(self)
-        self.props.program_name = 'jade_gui'
-        self.props.version = "0.1.0"
-        self.props.authors = ['user']
-        self.props.copyright = '2022 user'
-        self.props.logo_icon_name = 'al.getcryst.jadegui'
-        self.props.modal = True
-        self.set_transient_for(parent)
-
+    def show_about(self, *args):
+        builder = Gtk.Builder.new_from_resource("/al/getcryst/jadegui/about.ui")
+        about_window = builder.get_object("aboutWindow")
+        about_window.set_transient_for(self)
+        about_window.present()

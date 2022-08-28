@@ -2,31 +2,6 @@ pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.proje
 moduledir = join_paths(pkgdatadir, 'jade_gui')
 gnome = import('gnome')
 
-blueprints = custom_target('blueprints',
-  input: files(
-    'gtk/help-overlay.blp',
-    'window.blp',
-    'widgets/timezone.blp',
-    'widgets/layout.blp',
-    'widgets/variant.blp',
-    'widgets/desktop.blp',
-    'widgets/disk.blp',
-    'pages/keyboard_screen.blp',
-    'pages/timezone_screen.blp',
-    'pages/user_screen.blp',
-    'pages/desktop_screen.blp',
-    'pages/misc_screen.blp',
-    'pages/partition_screen.blp',
-    'pages/summary_screen.blp',
-    'pages/install_screen.blp',
-    'pages/finished_screen.blp',
-  ),
-  output: '.',
-  command: [find_program('blueprint-compiler'), 'batch-compile', '@OUTPUT@', '@CURRENT_SOURCE_DIR@', '@INPUT@'],
-)
-
-
-
 gnome.compile_resources('jade_gui_resources',
   'resources.gresource.xml',
   gresource_bundle: true,
@@ -37,7 +12,6 @@ gnome.compile_resources('jade_gui_resources',
 
 gnome.compile_resources('jade_gui',
   'jade_gui.gresource.xml',
-  dependencies: blueprints,
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,

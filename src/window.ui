@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0"/>
+  <object class="GtkPopover" id="hamburger_menu">
+        <style>
+            <class name="menu"/>
+        </style>
+        <child>
+            <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">6</property>
+                <property name="margin-start">6</property>
+                <property name="margin-end">6</property>
+                <child>
+                    <object class="GtkModelButton" id="about_button">
+                        <property name="text" translatable="yes">About Jade GUI</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </object>
   <template class="JadeGuiWindow" parent="GtkApplicationWindow">
     <property name="title">Jade</property>
     <property name="default-width">600</property>
@@ -11,19 +30,24 @@
         <property name="title-widget">
           <object class="GtkBox">
             <child>
-              <object class="GtkImage">
-                <property name="resource">/al/getcryst/jadegui/crystal-logo-minimal.png</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkLabel">
-                <property name="margin-start">2</property>
-                <property name="label">&lt;span font_weight='bold'&gt;Jade&lt;/span&gt;</property>
-                <property name="use-markup">true</property>
+              <object class="AdwCarouselIndicatorDots">
+                <property name="carousel">carousel</property>
+                <property name="orientation">horizontal</property>
               </object>
             </child>
           </object>
         </property>
+        <child type="start">
+          <object class="GtkButton" id="back_button">
+            <property name="label">Back</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="menu_button">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="popover">hamburger_menu</property>
+          </object>
+        </child>
         <style>
           <class name="flat"/>
         </style>
@@ -35,12 +59,6 @@
         <property name="vexpand">true</property>
         <property name="hexpand">true</property>
         <child>
-          <object class="AdwCarouselIndicatorDots">
-            <property name="carousel">carousel</property>
-            <property name="orientation">vertical</property>
-          </object>
-        </child>
-        <child>
           <object class="AdwCarousel" id="carousel">
             <property name="orientation">horizontal</property>
             <property name="vexpand">true</property>
@@ -49,7 +67,7 @@
             <property name="allow-scroll-wheel">true</property>
             <property name="allow-long-swipes">true</property>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="welcome_page">
                 <property name="orientation">vertical</property>
                 <property name="valign">center</property>
                 <property name="halign">center</property>
@@ -71,7 +89,7 @@
                 <child>
                   <object class="GtkLabel" id="letsstart">
                     <property name="label">Ready to make your Crystal installation... ready?</property>
-                    <property name="margin-bottom">25</property>
+                    <property name="margin-bottom">28</property>
                   </object>
                 </child>
                 <child>
@@ -82,89 +100,13 @@
                     <property name="vexpand">true</property>
                     <property name="hexpand">true</property>
                     <child>
-                      <object class="GtkButton" id="quitButton">
-                        <property name="label">No...</property>
-                        <property name="margin-end">12</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="nextButton">
+                      <object class="GtkButton" id="next_button">
                         <property name="margin-start">12</property>
                         <property name="label">YEAH!</property>
                         <style>
                           <class name="suggested-action"/>
+                          <class name="pill"/>
                         </style>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="AdwStatusPage" id="timezone_page">
-                <property name="title">Let's get started, shall we?</property>
-                <property name="description">What's your current timezone?</property>
-                <child>
-                  <object class="GtkBox">
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkSearchBar" id="timezoneSearch">
-                        <child>
-                          <object class="GtkSearchEntry" id="entry_search">
-                            <property name="placeholder-text">Search for a timezone...</property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="AdwPreferencesPage">
-                        <child>
-                          <object class="AdwPreferencesGroup">
-                            <child>
-                              <object class="GtkListBox" id="list_timezones">
-                                <property name="selection-mode">none</property>
-                                <style>
-                                  <class name="boxed-list"/>
-                                </style>
-                                <child>
-                                  <object class="GtkLabel">
-                                    <property name="margin-top">5</property>
-                                    <property name="margin-bottom">5</property>
-                                    <property name="label">test</property>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkLabel">
-                                    <property name="margin-top">5</property>
-                                    <property name="margin-bottom">5</property>
-                                    <property name="label">test</property>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkLabel">
-                                    <property name="margin-top">5</property>
-                                    <property name="margin-bottom">5</property>
-                                    <property name="label">test</property>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkLabel">
-                                    <property name="margin-top">5</property>
-                                    <property name="margin-bottom">5</property>
-                                    <property name="label">test</property>
-                                  </object>
-                                </child>
-                                <child>
-                                  <object class="GtkLabel">
-                                    <property name="margin-top">5</property>
-                                    <property name="margin-bottom">5</property>
-                                    <property name="label">test</property>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
                       </object>
                     </child>
                   </object>
@@ -176,4 +118,16 @@
       </object>
     </child>
   </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label">Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label">About jade gui</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>
