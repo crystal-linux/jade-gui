@@ -12,8 +12,8 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Installation finished!</property>
-            <property name="description">Reboot to finish the installation</property>
+            <property name="title">Installation Completed!</property>
+            <property name="description">Restart the device to start Crystal Linux!</property>
             <property name="icon-name">al.getcryst.jadegui</property>
             <child>
               <object class="GtkBox">

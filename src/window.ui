@@ -82,13 +82,13 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="welcome">
-                    <property name="label">&lt;span font_weight='bold' font_size='20pt'&gt;Welcome to jade&lt;/span&gt;</property>
+                    <property name="label">&lt;span font_weight='bold' font_size='20pt'&gt;Welcome to Crystal Linux&lt;/span&gt;</property>
                     <property name="use-markup">true</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkLabel" id="letsstart">
-                    <property name="label">Ready to make your Crystal installation... ready?</property>
+                    <property name="label">Crystal Linux is a Linux distribution based on Arch Linux.</property>
                     <property name="margin-bottom">28</property>
                   </object>
                 </child>
@@ -102,7 +102,7 @@
                     <child>
                       <object class="GtkButton" id="next_button">
                         <property name="margin-start">12</property>
-                        <property name="label">YEAH!</property>
+                        <property name="label">Start</property>
                         <style>
                           <class name="suggested-action"/>
                           <class name="pill"/>

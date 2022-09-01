@@ -13,14 +13,13 @@
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
             <property name="title">Miscellaneous</property>
-            <property name="description"></property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="AdwEntryRow" id="hostname_entry">
-                        <property name="title">enter the hostname</property>
+                        <property name="title">Enter Hostname</property>
                       </object>
                     </child>
                     <child>
@@ -31,7 +30,8 @@
                         </style>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Enable ipv6</property>
+                            <property name="title">IPv6</property>
+			    <property name="subtitle">Support Internet Protocol version 6.</property>
                             <child>
                               <object class="GtkSwitch" id="ipv_switch">
                                 <property name="valign">center</property>
@@ -42,7 +42,8 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Enable timeshift</property>
+                            <property name="title">Timeshift</property>
+			    <property name="subtitle">Support snapshots as a means to roll back to earlier states of the system.</property>
                             <child>
                               <object class="GtkSwitch" id="timeshift_switch">
                                 <property name="valign">center</property>
