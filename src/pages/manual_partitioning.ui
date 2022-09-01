@@ -8,24 +8,18 @@
     </style>
   </object>
   <template class="ManualPartitionScreen" parent="AdwBin">
-    <property name="hexpand">true</property>
-    <property name="vexpand">true</property>
     <child>
       <object class="GtkBox">
-        <property name="hexpand">true</property>
-        <property name="vexpand">true</property>
+        <property name="orientation">vertical</property>
         <property name="halign">fill</property>
         <property name="valign">fill</property>
         <child>
           <object class="AdwStatusPage">
-            <property name="hexpand">true</property>
-            <property name="vexpand">true</property>
-            <property name="halign">fill</property>
-            <property name="valign">fill</property>
             <property name="title">Select partitions to install to</property>
             <property name="description">Make sure to have at least one root partition</property>
+            <property name="vexpand">true</property>
             <child>
-              <object class="AdwPreferencesPage">
+              <object class="AdwClamp">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <property name="title">Available partitions</property>
@@ -47,4 +41,5 @@
     </child>
   </template>
 </interface>
+
 

@@ -17,25 +17,29 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-import subprocess, math
+import subprocess, math, shutil
+
+
+bash_bin = shutil.which("bash")
+
 def get_disks():
-    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDisks.sh"], capture_output=True)
+    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDisks.sh"], capture_output=True)
     disks=command.stdout.decode('utf-8')[:-1].split('\n')
     return disks
 
 def get_disk_size(disk: str):
-    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDiskSize.sh "+disk], capture_output=True)
+    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDiskSize.sh "+disk], capture_output=True)
     size=command.stdout.decode('utf-8').strip('\n')
     print(disk+":"+size)
     return str(math.floor(int(size)/1000**3))+" GB"
 
 def get_uefi():
-    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/checkEFI.sh"], capture_output=True)
+    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/checkEFI.sh"], capture_output=True)
     isEfi=True if command.stdout.decode('utf-8').strip('\n') == "UEFI" else False
     return isEfi
 
 def get_disk_type(disk: str):
-    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDiskType.sh "+disk], capture_output=True)
+    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDiskType.sh "+disk], capture_output=True)
     disk_type=command.stdout.decode('utf-8').strip()
     print(disk_type)
     if disk_type == "0":
@@ -45,8 +49,7 @@ def get_disk_type(disk: str):
     else:
         return "Drive type unknown"
 
-
 def get_partitions():
-    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getPartitions.sh"], capture_output=True)
+    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getPartitions.sh"], capture_output=True)
     partitions=command.stdout.decode('utf-8')[:-1].split('\n')
     return partitions
