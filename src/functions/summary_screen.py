@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import subprocess
+import subprocess, shutil
 from jade_gui.utils import disks
 from jade_gui.classes.install_prefs import InstallPrefs
 from jade_gui.utils.threading import RunAsync
@@ -62,7 +62,7 @@ class SummaryScreen(Adw.Bin):
         self.window.set_previous_page(None)
         self.main_carousel.scroll_to(self.next_page, True)
         #(self.window.installer_screen.install())
-        subprocess.run(["bash", "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
+        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
         RunAsync(self.window.installer_screen.install, callback=self.window.installer_screen.carousel_next)
 
     def initialize(self):

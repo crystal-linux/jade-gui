@@ -20,7 +20,7 @@
 
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
-import re, subprocess
+import re, subprocess, shutil
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/pages/user_screen.ui')
 class UserScreen(Adw.Bin):
@@ -101,7 +101,7 @@ class UserScreen(Adw.Bin):
             self.password_confirmation.add_css_class('error')
 
     def encrypt_password(self, password):
-        command=subprocess.run(["openssl", "passwd", "-crypt", password], capture_output=True)
+        command=subprocess.run([shutil.which("openssl"), "passwd", "-crypt", password], capture_output=True)
         password_encrypted=command.stdout.decode('utf-8').strip('\n')
         return password_encrypted
 
