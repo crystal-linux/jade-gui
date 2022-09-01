@@ -71,25 +71,18 @@
                 <property name="orientation">vertical</property>
                 <property name="valign">center</property>
                 <property name="halign">center</property>
-                <property name="vexpand">true</property>
-                <property name="hexpand">true</property>
                 <child>
                   <object class="GtkImage" id="crystal-logo">
                     <property name="resource">/al/getcryst/jadegui/crystal-logo-minimal.png</property>
                     <property name="pixel-size">200</property>
-                    <property name="margin-bottom">25</property>
+                    <property name="margin-start">200</property>
+                    <property name="margin-end">200</property>
                   </object>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="welcome">
-                    <property name="label">&lt;span font_weight='bold' font_size='20pt'&gt;Welcome to Crystal Linux&lt;/span&gt;</property>
-                    <property name="use-markup">true</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="letsstart">
-                    <property name="label">Crystal Linux is a Linux distribution based on Arch Linux.</property>
-                    <property name="margin-bottom">28</property>
+                  <object class="AdwStatusPage" id="welcome">
+                      <property name="title" translatable="yes">Welcome to Crystal Linux</property>
+                      <property name="description" translatable="yes">Press Start to start installing Crystal Linux!</property>
                   </object>
                 </child>
                 <child>
@@ -101,7 +94,6 @@
                     <property name="hexpand">true</property>
                     <child>
                       <object class="GtkButton" id="next_button">
-                        <property name="margin-start">12</property>
                         <property name="label">Start</property>
                         <style>
                           <class name="suggested-action"/>
