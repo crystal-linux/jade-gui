@@ -12,8 +12,7 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Next question: keyboard layout?</property>
-            <property name="description">What is it? Huh?</property>
+            <property name="title">Select Keyboard Layout</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>

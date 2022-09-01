@@ -1,14 +1,14 @@
 desktops = [
     #"Onyx",
     "GNOME",
-    "KDE",
+    "Plasma",
     "Budgie",
-    "Mate",
+    "MATE",
     "Cinnamon",
     "LXQt",
     "Sway",
     "i3-gaps",
-    "Herbstluftwm",
-    "Awesome",
+    "herbstluftwm",
+    "AwesomeWM",
     "bspwm"
 ]

@@ -12,8 +12,8 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Now select the disk you want to install Crystal on</property>
-            <property name="description">This will wipe the entire disk you selected</property>
+            <property name="title">Select Installation Disk</property>
+            <property name="description">Select the disk you want to install Crystal Linux on. This will wipe the entire disk you selected.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>

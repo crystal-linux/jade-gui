@@ -12,8 +12,7 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Let's get started, shall we?</property>
-            <property name="description">What's your current timezone?</property>
+            <property name="title">Select Timezone</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">vertical</property>

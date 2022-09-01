@@ -12,7 +12,7 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Create your user</property>
+            <property name="title">Create User</property>
             <property name="description">You can add more users in the settings on the installed system</property>
             <child>
               <object class="AdwPreferencesPage">
@@ -20,17 +20,17 @@
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="AdwEntryRow" id="username_entry">
-                        <property name="title">Enter your username</property>
+                        <property name="title">Enter Username</property>
                       </object>
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="password_entry">
-                        <property name="title">Enter your password</property>
+                        <property name="title">Enter Password</property>
                       </object>
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="password_confirmation">
-                        <property name="title">Repeat your password</property>
+                        <property name="title">Re-enter Password</property>
                       </object>
                     </child>
                     <child>
@@ -41,7 +41,7 @@
                         </style>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Enable administrative rights for user</property>
+                            <property name="title">Enable Administrative Rights for User</property>
                             <property name="subtitle">Allows the user to use sudo</property>
                             <child>
                               <object class="GtkSwitch" id="enable_sudo_switch">
@@ -53,7 +53,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Enable superuser account</property>
+                            <property name="title">Enable Superuser Account</property>
                             <property name="subtitle">Allows using the root user</property>
                             <child>
                               <object class="GtkSwitch" id="enable_root_switch">
