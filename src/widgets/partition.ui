@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="PartitionEntry" parent="AdwActionRow">
+    <property name="title">Partition</property>
+    <property name="subtitle">Size</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkComboBoxText" id="filesystem_dropdown">
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="popup-fixed-width">true</property>
+            <!--><property name="child">
+              <object class="GtkStringList" id="filesystem_list">
+              </object>
+            </property>-->
+          </object>
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="mountpoint_dropdown">
+            <property name="valign">center</property>
+            <property name="halign">center</property>
+            <property name="popup-fixed-width">true</property>
+            <!--><property name="child">
+              <object class="GtkStringList" id="mountpoint_list">
+              </object>
+            </property>-->
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

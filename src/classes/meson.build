@@ -6,5 +6,6 @@ jade_gui_sources = [
     'locale.py',
     'keymap.py',
     'install_prefs.py',
+    'partition.py'
 ]
 install_data(jade_gui_sources, install_dir: classesdir)

@@ -46,3 +46,7 @@ def get_disk_type(disk: str):
         return "Drive type unknown"
 
 
+def get_partitions():
+    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getPartitions.sh"], capture_output=True)
+    partitions=command.stdout.decode('utf-8')[:-1].split('\n')
+    return partitions

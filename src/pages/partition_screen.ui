@@ -19,7 +19,18 @@
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
-                      <object class="GtkListBox" id="partition_list">
+                      <object class="GtkButton" id="manual_partitioning">
+                        <property name="margin-start">70</property>
+                        <property name="margin-end">70</property>
+                        <property name="margin-bottom">20</property>
+                        <property name="label">Switch to manual partitioning</property>
+                        <style>
+                          <class name="pill"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkListBox" id="disk_list">
                         <property name="activate-on-single-click">true</property>
                         <style>
                           <class name="boxed-list"/>
@@ -53,3 +64,4 @@
     </child>
   </template>
 </interface>
+

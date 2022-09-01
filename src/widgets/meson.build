@@ -7,6 +7,7 @@ jade_gui_sources = [
     'layout.py',
     'variant.py',
     'desktop.py',
-    'disk.py'
+    'disk.py',
+    'partition.py'
 ]
 install_data(jade_gui_sources, install_dir: widgetsdir)

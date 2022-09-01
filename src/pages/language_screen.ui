@@ -24,7 +24,7 @@
                         <property name="hexpand">true</property>
                         <property name="margin-end">30</property>
                         <property name="margin-start">30</property>
-                        <property name="placeholder-text" translatable="true">Search for a locale</property>
+                        <property name="placeholder-text">Search for a locale</property>
                       </object>
                     </child>
                   </object>

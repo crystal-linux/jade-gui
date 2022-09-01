@@ -18,17 +18,20 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from gi.repository import Gtk, Gdk, Adw
+from .classes.partition import Partition
 from .widgets.timezone import TimezoneEntry
 from .widgets.layout import KeyboardLayout
 from .widgets.variant import KeyboardVariant
 from .widgets.desktop import DesktopEntry
 from .widgets.disk import DiskEntry
+from .widgets.partition import PartitionEntry
 from .functions.keyboard_screen import KeyboardScreen
 from .functions.timezone_screen import TimezoneScreen
 from .functions.user_screen import UserScreen
 from .functions.desktop_screen import DesktopScreen
 from .functions.misc_screen import MiscScreen
 from .functions.partition_screen import PartitionScreen
+from .functions.manual_partitioning import ManualPartitionScreen
 from .functions.summary_screen import SummaryScreen
 from .functions.install_screen import InstallScreen
 from .functions.finished_screen import FinishedScreen
@@ -58,6 +61,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.installer_screen = InstallScreen(window=self, main_carousel=self.carousel, next_page=self.finished_screen, **kwargs)
         self.summary_screen = SummaryScreen(window=self, main_carousel=self.carousel, next_page=self.installer_screen, **kwargs)
         self.partition_screen = PartitionScreen(window=self, main_carousel=self.carousel, next_page=self.summary_screen, **kwargs)
+        self.manual_partition = ManualPartitionScreen(window=self, main_carousel=self.carousel, next_page=self.summary_screen, **kwargs)
         self.misc_screen = MiscScreen(window=self, main_carousel=self.carousel, next_page=self.partition_screen, **kwargs)
         self.desktop_screen = DesktopScreen(window=self, main_carousel=self.carousel, next_page=self.misc_screen, **kwargs)
         self.user_screen = UserScreen(window=self, main_carousel=self.carousel, next_page=self.desktop_screen, **kwargs)
@@ -68,6 +72,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.carousel.append(self.user_screen)
         self.carousel.append(self.desktop_screen)
         self.carousel.append(self.misc_screen)
+        self.carousel.append(self.manual_partition)
         self.carousel.append(self.partition_screen)
         self.carousel.append(self.summary_screen)
         self.carousel.append(self.installer_screen)
@@ -81,7 +86,6 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         ### ---------
         self.previous_page = None
         self.set_previous_page(None)
-
         ### Test timezones
         for i in locations:
             for locale in i:
@@ -125,11 +129,11 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
             button_group=None,
             **kwargs
         )
-        self.partition_screen.partition_list.append(firstdisk)
+        self.partition_screen.disk_list.append(firstdisk)
         firstdisk.toggled_cb(firstdisk.select_button)
         for disk in self.available_disks:
             if disk != self.available_disks[0]:
-                self.partition_screen.partition_list.append(
+                self.partition_screen.disk_list.append(
                     DiskEntry(
                         window=self,
                         disk=disk,
@@ -142,6 +146,15 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
                 )
 
         ### ---------
+        self.available_partitions = disks.get_partitions()
+        for partition in self.available_partitions:
+            self.manual_partition.partition_list.append(
+                PartitionEntry(
+                    window=self,
+                    partition=Partition(partition=partition, mountpoint="", filesystem="", size="10000nab (neco arc bytes)"),
+                    **kwargs
+                )
+            )
 
     def set_previous_page(self, previous_page):
         if previous_page is None:

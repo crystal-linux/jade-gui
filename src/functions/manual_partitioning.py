@@ -19,12 +19,14 @@
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
 
-@Gtk.Template(resource_path='/al/getcryst/jadegui/pages/partition_screen.ui')
-class PartitionScreen(Adw.Bin):
-    __gtype_name__ = "PartitionScreen"
+@Gtk.Template(resource_path='/al/getcryst/jadegui/pages/manual_partitioning.ui')
+class ManualPartitionScreen(Adw.Bin):
+    __gtype_name__ = "ManualPartitionScreen"
 
-    disk_list = Gtk.Template.Child()
-    next_page_button = Gtk.Template.Child()
+    open_fdisk = Gtk.Template.Child()
+    open_gparted = Gtk.Template.Child()
+    partition_list = Gtk.Template.Child()
+    #next_page_button = Gtk.Template.Child()
     #custom_partition = Gtk.Template.Child()
 
     selected_partition = None
@@ -35,16 +37,7 @@ class PartitionScreen(Adw.Bin):
         self.window = window
         self.carousel = main_carousel
         self.next_page = next_page
-        self.next_page_button.connect("clicked", self.carousel_next)
-        self.disk_list.connect("row_selected", self.row_selected)
-
-    def row_selected(self, widget, row):
-        if row is not None:
-            print(row.get_title())
-            row.select_button.set_active(True)
-            self.selected_partition = row
-        else:
-            print("ERROR: invalid row slected")
+      #  self.next_page_button.connect("clicked", self.carousel_next)
 
     def carousel_next(self, widget):
         self.window.set_previous_page(self.window.misc_screen)
