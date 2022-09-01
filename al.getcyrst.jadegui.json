@@ -1,7 +1,7 @@
 {
     "app-id" : "al.getcryst.jadegui",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "master",
+    "runtime-version" : "42",
     "sdk" : "org.gnome.Sdk",
     "command" : "jade_gui",
     "finish-args" : [
@@ -9,7 +9,8 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri",
-        "--socket=wayland"
+        "--socket=wayland",
+        "--talk-name=org.freedesktop.Flatpak"
     ],
     "cleanup" : [
         "/include",
@@ -17,20 +18,78 @@
         "/man",
         "/share/doc",
         "/share/gtk-doc",
-        "/share/man",
         "/share/pkgconfig",
         "*.la",
         "*.a"
     ],
     "modules" : [
         {
-            "name" : "jade_gui",
-            "builddir" : true,
+            "name" : "libadwaita",
             "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dexamples=false",
+                "-Dtests=false"
+            ],
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "file:///var/home/user/Projects/jade_gui"
+                    "url" : "https://gitlab.gnome.org/GNOME/libadwaita.git",
+                    "tag" : "1.2.beta",
+                    "commit" : "7387b453a4c93fbb60d68ec009af6f719fe8bab9"
+                }
+            ],
+            "modules" : [
+                {
+                    "name" : "libsass",
+                    "buildsystem" : "meson",
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://github.com/lazka/libsass.git",
+                            "branch" : "meson"
+                        }
+                    ]
+                },
+                {
+                    "name" : "sassc",
+                    "buildsystem" : "meson",
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://github.com/lazka/sassc.git",
+                            "branch" : "meson"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name" : "python3-pytz",
+            "buildsystem" : "simple",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://files.pythonhosted.org/packages/2f/5f/a0f653311adff905bbcaa6d3dfaf97edcf4d26138393c6ccd37a484851fb/pytz-2022.1.tar.gz",
+                    "sha256" : "1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7"
+                }
+            ],
+            "build-commands" : [
+                "ls",
+                "pip3 install --prefix=/app ."
+            ]
+        },
+        {
+            "name" : "jadegui",
+            "buildsystem" : "meson",
+            "build-options" : {
+                "build-args" : [
+                    "--share=network"
+                ]
+            },
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "."
                 }
             ]
         }
