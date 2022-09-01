@@ -12,11 +12,12 @@
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <property name="halign">fill</property>
-        <property name="valign">center</property>
+        <property name="valign">fill</property>
         <child>
           <object class="AdwStatusPage">
             <property name="title">Select partitions to install to</property>
             <property name="description">Make sure to have at least one root partition</property>
+            <property name="vexpand">true</property>
             <child>
               <object class="AdwClamp">
                 <child>
