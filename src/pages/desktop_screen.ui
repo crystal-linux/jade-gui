@@ -11,7 +11,7 @@
         <child>
           <object class="AdwStatusPage">
             <property name="title">Select Desktop</property>
-            <property name="description">You can install more desktops later</property>
+            <property name="description">You can install more desktops later.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>

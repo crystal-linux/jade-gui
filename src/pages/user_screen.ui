@@ -13,7 +13,7 @@
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
             <property name="title">Create User</property>
-            <property name="description">You can add more users in the settings on the installed system</property>
+            <property name="description">You can add more users in the settings on the installed system.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>

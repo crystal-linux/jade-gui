@@ -13,7 +13,7 @@
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
             <property name="title">Summary</property>
-            <property name="description">Last chance to verify everything</property>
+            <property name="description">Last chance to verify everything.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
