@@ -13,7 +13,7 @@
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
             <property name="title">Installation Completed!</property>
-            <property name="description">Restart the device to start Crystal Linux!</property>
+            <property name="description">Reboot the device to start using Crystal Linux!</property>
             <property name="icon-name">al.getcryst.jadegui</property>
             <child>
               <object class="GtkBox">
