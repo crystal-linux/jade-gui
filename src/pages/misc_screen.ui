@@ -30,8 +30,8 @@
                         </style>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">IPv6</property>
-			    <property name="subtitle">Support Internet Protocol version 6.</property>
+                            <property name="title">IPv6 loopback</property>
+			                      <property name="subtitle">This can fix IPv6 connectivity issues with some ISPs.</property>
                             <child>
                               <object class="GtkSwitch" id="ipv_switch">
                                 <property name="valign">center</property>

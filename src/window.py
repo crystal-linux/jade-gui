@@ -72,8 +72,8 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.carousel.append(self.user_screen)
         self.carousel.append(self.desktop_screen)
         self.carousel.append(self.misc_screen)
-        self.carousel.append(self.manual_partition)
         self.carousel.append(self.partition_screen)
+        self.carousel.append(self.manual_partition)
         self.carousel.append(self.summary_screen)
         self.carousel.append(self.installer_screen)
         self.carousel.append(self.finished_screen)
@@ -83,6 +83,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.next_button.connect("clicked", self.carousel_next)
         self.back_button.connect("clicked", self.previousPage)
         self.about_button.connect("clicked", self.show_about)
+        self.partition_mode = "Auto"
         ### ---------
         self.previous_page = None
         self.set_previous_page(None)

@@ -25,6 +25,7 @@ class PartitionScreen(Adw.Bin):
 
     disk_list = Gtk.Template.Child()
     next_page_button = Gtk.Template.Child()
+    manual_partitioning = Gtk.Template.Child()
     #custom_partition = Gtk.Template.Child()
 
     selected_partition = None
@@ -37,6 +38,12 @@ class PartitionScreen(Adw.Bin):
         self.next_page = next_page
         self.next_page_button.connect("clicked", self.carousel_next)
         self.disk_list.connect("row_selected", self.row_selected)
+        self.manual_partitioning.connect("clicked", self.switch_manual_partitioning)
+
+    def switch_manual_partitioning(self, widget):
+        self.set_visible(False)
+        self.window.manual_partition.set_visible(True)
+        self.window.partition_mode = "Manual"
 
     def row_selected(self, widget, row):
         if row is not None:

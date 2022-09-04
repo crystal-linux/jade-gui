@@ -97,6 +97,14 @@ class SummaryScreen(Adw.Bin):
         #self.theme_label.set_title("Crystal theming enabled" if self.window.misc_screen.crystal_theming_enabled else "Crystal theming disabled")
         #self.unakite_label.set_title("Unakite enabled "+"enabled" if self.window.misc_screen.)
         
+        partitions=[]
+        for i in range(0, len(self.window.available_partitions)):
+            partition = self.window.manual_partition.partition_list.get_row_at_index(i).partition
+            partitions.append(partition.generate_jade_entry())
+        print(partitions)
+        print(self.window.partition_mode)
+
+
         self.installprefs = InstallPrefs(
             timezone=self.window.timezone_screen.chosen_timezone,
             layout=self.window.keyboard_screen.variant,
@@ -109,6 +117,8 @@ class SummaryScreen(Adw.Bin):
             ipv_enabled=self.window.misc_screen.ipv_enabled,
             timeshift_enable=self.window.misc_screen.timeshift_enabled,
             desktop=self.window.desktop_screen.chosen_desktop,
+            partition_mode=self.window.partition_mode,
+            partitions=partitions,
         )
         
 

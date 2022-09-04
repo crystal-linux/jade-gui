@@ -11,5 +11,7 @@ jade_gui_sources = [
     'getDiskName.sh',
     'getPartitions.sh',
     'reboot.sh',
+    'openBash.sh',
+    'openGparted.sh',
 ]
 install_data(jade_gui_sources, install_dir: scriptsdir)

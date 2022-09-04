@@ -16,18 +16,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import subprocess, shutil
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
+from jade_gui.utils import disks
+from jade_gui.widgets.partition import PartitionEntry
+from jade_gui.classes.partition import Partition
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/pages/manual_partitioning.ui')
 class ManualPartitionScreen(Adw.Bin):
     __gtype_name__ = "ManualPartitionScreen"
 
-    open_fdisk = Gtk.Template.Child()
+    open_bash = Gtk.Template.Child()
     open_gparted = Gtk.Template.Child()
     partition_list = Gtk.Template.Child()
-    #next_page_button = Gtk.Template.Child()
-    #custom_partition = Gtk.Template.Child()
+    reload_partitions = Gtk.Template.Child()
+    automatic_partitioning = Gtk.Template.Child()
+    next_page_button = Gtk.Template.Child()
 
     selected_partition = None
     move_to_summary = False
@@ -37,7 +42,39 @@ class ManualPartitionScreen(Adw.Bin):
         self.window = window
         self.carousel = main_carousel
         self.next_page = next_page
-      #  self.next_page_button.connect("clicked", self.carousel_next)
+        self.reload_partitions.connect("clicked", self.check_partitions)
+        self.automatic_partitioning.connect("clicked", self.switch_automatic_partitioning)
+        self.next_page_button.connect("clicked", self.carousel_next)
+        self.open_bash.connect("clicked", self.bash)
+        self.open_gparted.connect("clicked", self.gparted)
+
+    def gparted(self, widget):
+        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/openGparted.sh"])
+
+    def bash(self, widget):
+        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/openBash.sh"])
+
+    def switch_automatic_partitioning(self, widget):
+        self.set_visible(False)
+        self.window.partition_screen.set_visible(True)
+        self.window.partition_mode = "Auto"
+
+    def check_partitions(self, widget):
+        self.partition_list.select_all()
+        print(self.partition_list.get_row_at_index(2))
+        for i in range(0, len(self.window.available_partitions)):
+            self.partition_list.remove(self.partition_list.get_row_at_index(0))
+        self.available_partitions = disks.get_partitions()
+        self.window.available_partitions = self.available_partitions
+        for partition in self.available_partitions:
+            self.partition_list.append(
+                PartitionEntry(
+                    window=self,
+                    partition=Partition(partition=partition, mountpoint="", filesystem="", size="10000nab (neco arc bytes)"),
+                    application=None
+                )
+            )
+
 
     def carousel_next(self, widget):
         self.window.set_previous_page(self.window.misc_screen)

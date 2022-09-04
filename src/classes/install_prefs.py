@@ -34,6 +34,8 @@ class InstallPrefs:
         ipv_enabled,
         timeshift_enable,
         desktop,
+        partition_mode,
+        partitions,
     ):
         self.timezone = timezone
         self.layout = layout
@@ -46,6 +48,7 @@ class InstallPrefs:
         self.ipv_enabled = ipv_enabled
         self.timeshift_enable = timeshift_enable
         self.desktop = desktop
+        self.partition_mode = partition_mode
         self.is_efi = disks.get_uefi()
         self.bootloader_type = "grub-efi" if self.is_efi else "grub-legacy"
         self.bootloader_location = "/boot/efi" if self.is_efi else self.disk
@@ -54,9 +57,9 @@ class InstallPrefs:
         prefs = {
             '"partition"': {
                 '"device"': '"'+self.disk+'"',
-                '"mode"': '"Auto"',
+                '"mode"': '"'+self.partition_mode+'"',
                 '"efi"': self.is_efi,
-                '"partitions"': [],
+                '"partitions"': partitions,
             },
             '"bootloader"': {
                 '"type"': '"'+self.bootloader_type+'"',
@@ -84,7 +87,9 @@ class InstallPrefs:
             '"rootpass"': '"'+self.password+'"',
             '"desktop"': '"'+self.desktop.lower()+'"',
             '"timeshift"': self.timeshift_enable,
-            '"extra_packages"': [],
+            '"extra_packages"': [
+                '"ttf-nerd-fonts-symbols-1000-em-mono"'
+            ],
             '"flatpak"': True,
             '"unakite"': {
                 '"enable"': False,

@@ -2,12 +2,13 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <object class="GtkButton" id="reload_partitions">
-    <property name="icon-name">refresh-large-symbolic</property>
+    <property name="icon-name">view-refresh-symbolic</property>
     <style>
       <class name="flat"/>
     </style>
   </object>
   <template class="ManualPartitionScreen" parent="AdwBin">
+    <property name="visible">False</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
@@ -18,6 +19,41 @@
             <property name="title">Select partitions to install to</property>
             <property name="description">Make sure to have at least one root partition</property>
             <property name="vexpand">true</property>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="spacing">10</property>
+                <child>
+                  <object class="AdwClamp">
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title">Quick Actions</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="orientation">horizontal</property>
+                        <property name="halign">center</property>
+                        <property name="spacing">10</property>
+                        <child>
+                          <object class="GtkButton" id="automatic_partitioning">
+                            <property name="label">Automatic Partitioning</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="open_gparted">
+                            <property name="label">Open GParted</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="open_bash">
+                            <property name="label">Open terminal</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                </object>
+              </child>
             <child>
               <object class="AdwClamp">
                 <child>
@@ -33,6 +69,25 @@
                     </child>
                   </object>
                 </child>
+              </object>
+            </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkOverlay">
+            <child type="overlay">
+              <object class="GtkButton" id="next_page_button">
+                <property name="margin-end">20</property>
+                <property name="margin-bottom">20</property>
+                <property name="label">Next</property>
+                <property name="halign">end</property>
+                <property name="valign">end</property>
+                <property name="tooltip-text">Move to next page</property>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
               </object>
             </child>
           </object>
