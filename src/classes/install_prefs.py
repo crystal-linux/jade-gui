@@ -54,7 +54,7 @@ class InstallPrefs:
         self.partitions = partitions
         self.is_efi = disks.get_uefi()
         self.bootloader_type = "grub-efi" if self.is_efi else "grub-legacy"
-        self.bootloader_location = "/boot/efi/" if self.is_efi else "self.disk"
+        self.bootloader_location = "/boot/efi/" if self.is_efi else self.disk
 
     def generate_json(self):
         prefs = {
