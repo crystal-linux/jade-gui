@@ -73,10 +73,11 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.carousel.append(self.desktop_screen)
         self.carousel.append(self.misc_screen)
         self.carousel.append(self.partition_screen)
-        self.carousel.append(self.manual_partition)
+        #self.carousel.append(self.manual_partition)
         self.carousel.append(self.summary_screen)
         self.carousel.append(self.installer_screen)
         self.carousel.append(self.finished_screen)
+        print(self.carousel.get_n_pages())
         ### Widgets for first page (welcome screen)
         #self.quit_button.connect("clicked", self.confirmQuit)
         #self.summary_screen.connect_buttons()
@@ -149,7 +150,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         ### ---------
         self.available_partitions = disks.get_partitions()
         for partition in self.available_partitions:
-            self.manual_partition.partition_list.append(
+            self.partition_screen.partition_list.append(
                 PartitionEntry(
                     window=self,
                     partition=Partition(partition=partition, mountpoint="", filesystem="", size="10000nab (neco arc bytes)"),

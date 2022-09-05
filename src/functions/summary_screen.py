@@ -62,7 +62,7 @@ class SummaryScreen(Adw.Bin):
         self.window.set_previous_page(None)
         self.main_carousel.scroll_to(self.next_page, True)
         #(self.window.installer_screen.install())
-        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
+        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
         RunAsync(self.window.installer_screen.install, callback=self.window.installer_screen.carousel_next)
 
     def initialize(self):
@@ -88,8 +88,12 @@ class SummaryScreen(Adw.Bin):
 
         self.desktop_label.set_title(self.window.desktop_screen.chosen_desktop)
 
-        self.partition_label.set_title(self.window.partition_screen.selected_partition.disk)
-        self.partition_label.set_subtitle(self.window.partition_screen.selected_partition.disk_size)
+        if self.window.partition_mode == "Manual":
+            self.partition_label.set_title("Manual partitioning selected")
+            self.partition_label.set_subtitle("")
+        else:
+            self.partition_label.set_title(self.window.partition_screen.selected_partition.disk)
+            self.partition_label.set_subtitle(self.window.partition_screen.selected_partition.disk_size)
         self.uefi_label.set_title("UEFI" if disks.get_uefi() else "Legacy BIOS")
 
         self.ipv_label.set_title("ipv6 enabled" if self.window.misc_screen.ipv_enabled else "ipv6 disabled")
@@ -99,10 +103,8 @@ class SummaryScreen(Adw.Bin):
         
         partitions=[]
         for i in range(0, len(self.window.available_partitions)):
-            partition = self.window.manual_partition.partition_list.get_row_at_index(i).partition
+            partition = self.window.partition_screen.partition_list.get_row_at_index(i).partition
             partitions.append(partition.generate_jade_entry())
-        print(partitions)
-        print(self.window.partition_mode)
 
 
         self.installprefs = InstallPrefs(
