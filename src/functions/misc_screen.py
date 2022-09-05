@@ -27,6 +27,7 @@ class MiscScreen(Adw.Bin):
     hostname_entry = Gtk.Template.Child()
     ipv_switch = Gtk.Template.Child()
     timeshift_switch = Gtk.Template.Child()
+    zramd_switch = Gtk.Template.Child()
     #theme_switch = Gtk.Template.Child()
     next_page_button = Gtk.Template.Child()
 
@@ -34,6 +35,7 @@ class MiscScreen(Adw.Bin):
     ipv_enabled = False
     crystal_theming_enabled = False
     timeshift_enabled = True
+    zramd_enabled = True
     move_to_summary = False
 
     def __init__(self, window, main_carousel, next_page, application, **kwargs):
@@ -47,7 +49,7 @@ class MiscScreen(Adw.Bin):
         self.window.set_previous_page(self.window.desktop_screen)
         self.hostname = self.hostname_entry.get_text()
         self.ipv_enabled = self.ipv_switch.get_state()
-        #self.crystal_theming_enabled = self.theme_switch.get_state()
+        self.zramd_enabled = self.zramd_switch.get_state()
         self.timeshift_enabled = self.timeshift_switch.get_state()
         if self.move_to_summary:
             self.window.summary_screen.initialize()

@@ -52,6 +52,18 @@
                             </child>
                           </object>
                         </child>
+                        <child>
+                          <object class="AdwActionRow">
+                            <property name="title">Zramd</property>
+			    <property name="subtitle">Creates a compressed area of Swap in RAM.</property>
+                            <child>
+                              <object class="GtkSwitch" id="zramd_switch">
+                                <property name="valign">center</property>
+                                <property name="state">true</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>

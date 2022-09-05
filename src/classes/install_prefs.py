@@ -32,7 +32,8 @@ class InstallPrefs:
         disk,
         hostname,
         ipv_enabled,
-        timeshift_enable,
+        timeshift_enabled,
+        zramd_enabled,
         desktop,
         partition_mode,
         partitions,
@@ -46,7 +47,8 @@ class InstallPrefs:
         self.disk = disk.disk
         self.hostname = hostname if len(hostname) != 0 else "crystal"
         self.ipv_enabled = ipv_enabled
-        self.timeshift_enable = timeshift_enable
+        self.timeshift_enabled = timeshift_enabled
+        self.zramd_enabled = zramd_enabled
         self.desktop = desktop
         self.partition_mode = partition_mode
         self.partitions = partitions
@@ -87,11 +89,12 @@ class InstallPrefs:
             ],
             'rootpass': self.password,
             'desktop': self.desktop.lower(),
-            'timeshift': self.timeshift_enable,
+            'timeshift': self.timeshift_enabled,
             'extra_packages': [
                 'ttf-nerd-fonts-symbols-1000-em-mono'
             ],
             'flatpak': True,
+            'zramd': self.zramd_enabled,
             'unakite': {
                 'enable': False,
                 'root': '/dev/null',

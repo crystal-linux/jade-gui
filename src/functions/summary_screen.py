@@ -49,6 +49,8 @@ class SummaryScreen(Adw.Bin):
     ipv_button = Gtk.Template.Child()
     timeshift_label = Gtk.Template.Child()
     timeshift_button = Gtk.Template.Child()
+    zramd_label = Gtk.Template.Child()
+    zramd_button = Gtk.Template.Child()
     #unakite_label = Gtk.Template.Child()
 
     def __init__(self, window, main_carousel, next_page, application, **kwargs):
@@ -98,6 +100,7 @@ class SummaryScreen(Adw.Bin):
 
         self.ipv_label.set_title("ipv6 enabled" if self.window.misc_screen.ipv_enabled else "ipv6 disabled")
         self.timeshift_label.set_title("timeshift enabled" if self.window.misc_screen.timeshift_enabled else "timeshift disabled")
+        self.zramd_label.set_title("zramd enabled" if self.window.misc_screen.zramd_enabled else "zramd disabled")
         #self.theme_label.set_title("Crystal theming enabled" if self.window.misc_screen.crystal_theming_enabled else "Crystal theming disabled")
         #self.unakite_label.set_title("Unakite enabled "+"enabled" if self.window.misc_screen.)
         
@@ -117,7 +120,8 @@ class SummaryScreen(Adw.Bin):
             disk=self.window.partition_screen.selected_partition,
             hostname=self.window.misc_screen.hostname,
             ipv_enabled=self.window.misc_screen.ipv_enabled,
-            timeshift_enable=self.window.misc_screen.timeshift_enabled,
+            timeshift_enabled=self.window.misc_screen.timeshift_enabled,
+            zramd_enabled=self.window.misc_screen.zramd_enabled,
             desktop=self.window.desktop_screen.chosen_desktop,
             partition_mode=self.window.partition_mode,
             partitions=partitions,
