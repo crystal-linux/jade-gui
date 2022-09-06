@@ -17,7 +17,7 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-from jade_gui.utils import disks
+from ..utils import disks
 import json
 
 class InstallPrefs:
