@@ -18,27 +18,27 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from gi.repository import Gtk, Gdk, Adw
-from .classes.partition import Partition
-from .widgets.timezone import TimezoneEntry
-from .widgets.layout import KeyboardLayout
-from .widgets.variant import KeyboardVariant
-from .widgets.desktop import DesktopEntry
-from .widgets.disk import DiskEntry
-from .widgets.partition import PartitionEntry
-from .functions.keyboard_screen import KeyboardScreen
-from .functions.timezone_screen import TimezoneScreen
-from .functions.user_screen import UserScreen
-from .functions.desktop_screen import DesktopScreen
-from .functions.misc_screen import MiscScreen
-from .functions.partition_screen import PartitionScreen
-from .functions.manual_partitioning import ManualPartitionScreen
-from .functions.summary_screen import SummaryScreen
-from .functions.install_screen import InstallScreen
-from .functions.finished_screen import FinishedScreen
-from .locales.locales_list import locations
-from .keymaps import keymaps
-from .desktops import desktops
-from .utils import disks
+from jade_gui.classes.partition import Partition
+from jade_gui.widgets.timezone import TimezoneEntry
+from jade_gui.widgets.layout import KeyboardLayout
+from jade_gui.widgets.variant import KeyboardVariant
+from jade_gui.widgets.desktop import DesktopEntry
+from jade_gui.widgets.disk import DiskEntry
+from jade_gui.widgets.partition import PartitionEntry
+from jade_gui.functions.keyboard_screen import KeyboardScreen
+from jade_gui.functions.timezone_screen import TimezoneScreen
+from jade_gui.functions.user_screen import UserScreen
+from jade_gui.functions.desktop_screen import DesktopScreen
+from jade_gui.functions.misc_screen import MiscScreen
+from jade_gui.functions.partition_screen import PartitionScreen
+from jade_gui.functions.manual_partitioning import ManualPartitionScreen
+from jade_gui.functions.summary_screen import SummaryScreen
+from jade_gui.functions.install_screen import InstallScreen
+from jade_gui.functions.finished_screen import FinishedScreen
+from jade_gui.locales.locales_list import locations
+from jade_gui.keymaps import keymaps
+from jade_gui.desktops import desktops
+from jade_gui.utils import disks
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/window.ui')
 class JadeGuiWindow(Gtk.ApplicationWindow):
@@ -49,7 +49,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
 
     ### Page and widgets on welcome screen
     welcome_page = Gtk.Template.Child()
-  #  quit_button = Gtk.Template.Child()
+#   quit_button = Gtk.Template.Child()
     next_button = Gtk.Template.Child()
     back_button = Gtk.Template.Child()
     about_button = Gtk.Template.Child()
@@ -91,16 +91,11 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         ### Test timezones
         for i in locations:
             for locale in i:
-              #  print(locale.region)
-              #  print(locale.location)
-              #  print(locale.locales)
                 self.timezone_screen.list_timezones.append(TimezoneEntry(window=self, region=locale.region, location=locale.location, locale=locale.locales, **kwargs))
         ### ---------
 
         ### Test layouts
         for keymap in keymaps:
-            #print(keymap.layout)
-            #print(keymap.backend_layout)
             layout = KeyboardLayout(window=self, country=keymap.layout, country_shorthand=keymap.backend_layout, variants=keymap.variant, **kwargs)
             firstvariant = KeyboardVariant(window=self, variant=keymap.variant[0], country=layout.country, country_shorthand=layout.country_shorthand, button_group=None, **kwargs)
             layout.add_row(firstvariant)
@@ -148,7 +143,6 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
                     )
                 )
 
-        ### ---------
         self.available_partitions = disks.get_partitions()
         for partition in self.available_partitions:
             self.partition_screen.partition_list.append(
@@ -158,6 +152,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
                     **kwargs
                 )
             )
+        ### ---------
 
     def set_previous_page(self, previous_page):
         if previous_page is None:
@@ -187,7 +182,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
             transient_for=self,
             modal=True,
             parent=self,
-            text=_("Do you want to try\nCrystal without installing?"),
+            text="Do you want to try\nCrystal without installing?",
             buttons=Gtk.ButtonsType.YES_NO
         )
         dialog.connect("response", handle_response)

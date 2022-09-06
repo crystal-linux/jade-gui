@@ -26,9 +26,7 @@ class PartitionEntry(Adw.ActionRow):
     __gtype_name__ = 'PartitionEntry'
 
     filesystem_dropdown = Gtk.Template.Child()
-   # filesystem_list = Gtk.Template.Child()
     mountpoint_dropdown = Gtk.Template.Child()
-   # mountpoint_list = Gtk.Template.Child()
 
     def __init__(self, window, partition: Partition, application, **kwargs):
         super().__init__(**kwargs)

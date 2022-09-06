@@ -24,22 +24,18 @@ gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
 from gi.repository import Gtk, Gio, Adw
-from .window import JadeGuiWindow
+from jade_gui.window import JadeGuiWindow
 
 
 class Jade_guiApplication(Adw.Application):
     """The main application singleton class."""
 
-
     def __init__(self):
         super().__init__(application_id='al.getcryst.jadegui',
-                         flags=Gio.ApplicationFlags.FLAGS_NONE)
+                        flags=Gio.ApplicationFlags.FLAGS_NONE)
         self.create_action('quit', self.quit, ['<primary>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
-
-    def testResize(self, idk):
-        self.window.resize(800, 600)
 
     def do_activate(self):
         """Called when the application is activated.
@@ -66,8 +62,7 @@ class Jade_guiApplication(Adw.Application):
 
         Args:
             name: the name of the action
-            callback: the function to be called when the action is
-              activated
+            callback: the function to be called when the action is activated
             shortcuts: an optional list of accelerators
         """
         action = Gio.SimpleAction.new(name, None)

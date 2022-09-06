@@ -9,7 +9,7 @@ keymaps = [
       "fa-olpc",
       "olpc-ps",
       "ps",
-       "uz",
+      "uz",
       "uz-olpc",
     ],
   ),

@@ -18,9 +18,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import subprocess, shutil
-from ..utils import disks
-from ..classes.install_prefs import InstallPrefs
-from ..utils.threading import RunAsync
+from jade_gui.utils import disks
+from jade_gui.classes.install_prefs import InstallPrefs
+from jade_gui.utils.threading import RunAsync
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
 
