@@ -31,7 +31,6 @@ from jade_gui.functions.user_screen import UserScreen
 from jade_gui.functions.desktop_screen import DesktopScreen
 from jade_gui.functions.misc_screen import MiscScreen
 from jade_gui.functions.partition_screen import PartitionScreen
-from jade_gui.functions.manual_partitioning import ManualPartitionScreen
 from jade_gui.functions.summary_screen import SummaryScreen
 from jade_gui.functions.install_screen import InstallScreen
 from jade_gui.functions.finished_screen import FinishedScreen
@@ -61,7 +60,6 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.installer_screen = InstallScreen(window=self, main_carousel=self.carousel, next_page=self.finished_screen, **kwargs)
         self.summary_screen = SummaryScreen(window=self, main_carousel=self.carousel, next_page=self.installer_screen, **kwargs)
         self.partition_screen = PartitionScreen(window=self, main_carousel=self.carousel, next_page=self.summary_screen, **kwargs)
-        self.manual_partition = ManualPartitionScreen(window=self, main_carousel=self.carousel, next_page=self.summary_screen, **kwargs)
         self.misc_screen = MiscScreen(window=self, main_carousel=self.carousel, next_page=self.partition_screen, **kwargs)
         self.desktop_screen = DesktopScreen(window=self, main_carousel=self.carousel, next_page=self.misc_screen, **kwargs)
         self.user_screen = UserScreen(window=self, main_carousel=self.carousel, next_page=self.desktop_screen, **kwargs)
@@ -77,7 +75,6 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.carousel.append(self.summary_screen)
         self.carousel.append(self.installer_screen)
         self.carousel.append(self.finished_screen)
-        print(self.carousel.get_n_pages())
         ### Widgets for first page (welcome screen)
         #self.quit_button.connect("clicked", self.confirmQuit)
         #self.summary_screen.connect_buttons()
@@ -148,7 +145,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
             self.partition_screen.partition_list.append(
                 PartitionEntry(
                     window=self,
-                    partition=Partition(partition=partition, mountpoint="", filesystem="", size="10000nab (neco arc bytes)"),
+                    partition=Partition(partition=partition, mountpoint="", filesystem="", size=disks.get_disk_size(partition)),
                     **kwargs
                 )
             )
