@@ -77,6 +77,7 @@ class SummaryScreen(Adw.Bin):
         self.partition_button.connect("clicked", self.window.misc_screen.carousel_next_summary)
         self.ipv_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
         self.timeshift_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
+        self.zramd_button.connect("clicked", self.window.desktop_screen.carousel_next_summary)
 
         self.timezone_label.set_title(self.window.timezone_screen.chosen_timezone.region+"/"+self.window.timezone_screen.chosen_timezone.location)
         self.timezone_label.set_subtitle(self.window.timezone_screen.chosen_timezone.locale)
@@ -127,4 +128,5 @@ class SummaryScreen(Adw.Bin):
             partitions=partitions,
         )
         
+
 

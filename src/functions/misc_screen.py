@@ -33,7 +33,7 @@ class MiscScreen(Adw.Bin):
 
     hostname = "crystal"
     ipv_enabled = False
-    crystal_theming_enabled = False
+    zramd_enabled = False
     timeshift_enabled = True
     zramd_enabled = True
     move_to_summary = False

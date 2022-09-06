@@ -133,6 +133,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         )
         self.partition_screen.disk_list.append(firstdisk)
         firstdisk.toggled_cb(firstdisk.select_button)
+        self.partition_screen.selected_partition=firstdisk
         for disk in self.available_disks:
             if disk != self.available_disks[0]:
                 self.partition_screen.disk_list.append(

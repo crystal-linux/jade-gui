@@ -10,7 +10,7 @@ on:
 jobs:
     build:
       runs-on: ubuntu-latest
-      container: docker.io/crystallinux/crystal:latest
+      container: ghcr.io/crystal-linux/crystal:latest
       steps:
         - uses: actions/checkout@v3
 
