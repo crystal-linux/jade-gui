@@ -28,7 +28,6 @@ class MiscScreen(Adw.Bin):
     ipv_switch = Gtk.Template.Child()
     timeshift_switch = Gtk.Template.Child()
     zramd_switch = Gtk.Template.Child()
-    #theme_switch = Gtk.Template.Child()
     next_page_button = Gtk.Template.Child()
 
     hostname = "crystal"
