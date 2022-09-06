@@ -71,7 +71,7 @@ class PartitionScreen(Adw.Bin):
             self.partition_list.append(
                 PartitionEntry(
                     window=self,
-                    partition=Partition(partition=partition, mountpoint="", filesystem="", size="10000nab (neco arc bytes)"),
+                    partition=Partition(partition=partition, mountpoint="", filesystem="", size=disks.get_disk_size(partition)),
                     application=None
                 )
             )
