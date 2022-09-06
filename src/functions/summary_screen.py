@@ -64,7 +64,7 @@ class SummaryScreen(Adw.Bin):
         self.window.set_previous_page(None)
         self.main_carousel.scroll_to(self.next_page, True)
         #(self.window.installer_screen.install())
-        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
+        subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/savePrefs.sh '"+self.installprefs.generate_json()+"'"], capture_output=False)
         RunAsync(self.window.installer_screen.install, callback=self.window.installer_screen.carousel_next)
 
     def initialize(self):
