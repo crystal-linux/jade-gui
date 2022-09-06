@@ -63,9 +63,10 @@
             <property name="orientation">horizontal</property>
             <property name="vexpand">true</property>
             <property name="hexpand">true</property>
-            <property name="allow-mouse-drag">true</property>
-            <property name="allow-scroll-wheel">true</property>
-            <property name="allow-long-swipes">true</property>
+            <property name="allow-mouse-drag">false</property>
+            <property name="allow-scroll-wheel">false</property>
+            <property name="allow-long-swipes">false</property>
+            <property name="interactive">false</property>
             <child>
               <object class="GtkBox" id="welcome_page">
                 <property name="orientation">vertical</property>
