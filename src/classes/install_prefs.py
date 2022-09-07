@@ -58,50 +58,50 @@ class InstallPrefs:
 
     def generate_json(self):
         prefs = {
-            '"partition"': {
-                '"device"': '"'+self.disk+'"',
-                '"mode"': '"Auto"',
-                '"efi"': self.is_efi,
-                '"partitions"': [],
+            'partition': {
+                'device': self.disk,
+                'mode': self.partition_mode,
+                'efi': self.is_efi,
+                'partitions': self.partitions,
             },
-            '"bootloader"': {
-                '"type"': '"'+self.bootloader_type+'"',
-                '"location"': '"'+self.bootloader_location+'"'
+            'bootloader': {
+                'type': self.bootloader_type,
+                'location': self.bootloader_location
             },
-            '"locale"': {
-                '"locale"': [
-                   '"'+ self.timezone.locale+'"'
+            'locale': {
+                'locale': [
+                    self.timezone.locale
                 ],
-                '"keymap"': '"'+self.layout.country_shorthand+'"',
-                '"timezone"': '"'+self.timezone.region+"/"+self.timezone.location+'"'
+                'keymap': self.layout.country_shorthand,
+                'timezone': self.timezone.region+"/"+self.timezone.location
             },
-            '"networking"': {
-                '"hostname"': '"'+self.hostname+'"',
-                '"ipv6"': self.ipv_enabled
+            'networking': {
+                'hostname': self.hostname,
+                'ipv6': self.ipv_enabled
             },
-            '"users"': [
+            'users': [
                 {
-                    '"name"': '"'+self.username+'"',
-                    '"password"': '"'+self.password+'"',
-                    '"hasroot"': self.enable_sudo,
-                    '"shell"': '"zsh"'
+                    'name': self.username,
+                    'password': self.password,
+                    'hasroot': self.enable_sudo,
+                    'shell': 'zsh'
                 }
             ],
-            '"rootpass"': '"'+self.password+'"',
-            '"desktop"': '"'+self.desktop.lower()+'"',
-            '"timeshift"': self.timeshift_enabled,
-            '"extra_packages"': [
-                '"ttf-nerd-fonts-symbols-1000-em-mono"'
+            'rootpass': self.password,
+            'desktop': self.desktop.lower(),
+            'timeshift': self.timeshift_enabled,
+            'extra_packages': [
+                'ttf-nerd-fonts-symbols-1000-em-mono'
             ],
-            '"flatpak"': True,
-            '"zramd"': self.zramd_enabled,
-            '"unakite"': {
-                '"enable"': False,
-                '"root"': '"/dev/null"',
-                '"oldroot"': '"'+self.disk+'"',
-                '"efidir"': '"/dev/null"',
-                '"bootdev"': '"/dev/null"'
+            'flatpak': True,
+            'zramd': self.zramd_enabled,
+            'unakite': {
+                'enable': False,
+                'root': '/dev/null',
+                'oldroot': self.disk,
+                'efidir': '/dev/null',
+                'bootdev': '/dev/null'
             },
-            '"kernel"': '"linux"'
+            'kernel': 'linux'
         }
         return json.dumps(prefs)
