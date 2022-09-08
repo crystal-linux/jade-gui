@@ -5,5 +5,6 @@ jade_gui_sources = [
     '__init__.py',
     'disks.py',
     'threading.py',
+    'command.py',
 ]
 install_data(jade_gui_sources, install_dir: utilsdir)
