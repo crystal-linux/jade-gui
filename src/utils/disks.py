@@ -17,39 +17,59 @@
 #
 # SPDX-License-Identifier: GPL-3.0-only
 
-import subprocess, math, shutil
+import subprocess
+import math, shutil
+from jade_gui.utils.command import CommandUtils
 
 
 bash_bin = shutil.which("bash")
 
 def get_disks():
-    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDisks.sh"], capture_output=True)
-    disks=command.stdout.decode('utf-8')[:-1].split('\n')
-    return disks
+    output = CommandUtils.check_output(['lsblk', '-pdo', 'name'])
+    output = output.split()
+    output = [x for x in output if 'zram' not in x]
+    output = [x for x in output if 'NAME' not in x]
+    output = [x for x in output if 'loop' not in x]
+    output = [x for x in output if 'sr' not in x]
+    return output
 
 def get_disk_size(disk: str):
-    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDiskSize.sh "+disk], capture_output=True)
-    size=command.stdout.decode('utf-8').strip('\n')
+    output = CommandUtils.check_output(['lsblk', '-pdbo', 'SIZE', disk])
+    output = output.split()
+    output = [x for x in output if 'SIZE' not in x]
+
+    if len(output) == 0:
+        print(f"No disk found with name: {disk}, assuming zero.")
+        size = "0"
+    else:
+        size = output[0]
+
     print(disk+":"+size)
     return str(math.floor(int(size)/1000**3))+" GB"
 
 def get_uefi():
-    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/checkEFI.sh"], capture_output=True)
-    isEfi=True if command.stdout.decode('utf-8').strip('\n') == "UEFI" else False
-    return isEfi
+    output = CommandUtils.check_output(['-d', '/sys/firmware/efi'])
+    return "BIOS" if output == "0" else "UEFI"
 
 def get_disk_type(disk: str):
-    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getDiskType.sh "+disk], capture_output=True)
-    disk_type=command.stdout.decode('utf-8').strip()
-    print(disk_type)
-    if disk_type == "0":
-        return "Solid-State Drive (SSD)"
-    elif disk_type == "1":
-        return "Hard Disk (HDD)"
-    else:
-        return "Drive type unknown"
+    #lsblk -d -o rota $1 | grep -v ROTA
+    output = CommandUtils.check_output(['lsblk', '-d', '-o', 'rota', disk])
+    output = output.split()
+    output = [x for x in output if 'ROTA' not in x]
+
+    if len(output) > 0:
+        if output[0] == "0":
+            return "Solid-State Drive (SSD)"
+        elif output[0] == "1":
+            return "Hard Disk (HDD)"  # maybe Rotational Drive?
+        
+    print(f"No disk found with name: {disk}, assuming unknown.")
+    return "Drive type unknown"
 
 def get_partitions():
-    command=subprocess.run([bash_bin, "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/getPartitions.sh"], capture_output=True)
-    partitions=command.stdout.decode('utf-8')[:-1].split('\n')
-    return partitions
+    output = CommandUtils.check_output(['blkid', '-o', 'device'])
+    output = output.split()
+    output = [x for x in output if 'zram' not in x]
+    output = [x for x in output if 'loop' not in x]
+    output = [x for x in output if 'sr' not in x]
+    return output

@@ -21,6 +21,8 @@
 import subprocess, shutil
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
+from jade_gui.utils.command import CommandUtils
+
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/pages/finished_screen.ui')
 class FinishedScreen(Adw.Bin):
@@ -33,4 +35,4 @@ class FinishedScreen(Adw.Bin):
         self.reboot_button.connect("clicked", self.reboot)
 
     def reboot(self, widget):
-        command=subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade_gui/jade_gui/scripts/reboot.sh"], capture_output=False)
+        CommandUtils.run_command(["gnome-session-quit", "--reboot"])

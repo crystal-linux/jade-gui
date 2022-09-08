@@ -20,6 +20,7 @@ import subprocess, shutil
 from gi.repository import Gtk, Adw
 from gettext import gettext as _
 from jade_gui.utils import disks
+from jade_gui.utils.command import CommandUtils
 from jade_gui.widgets.partition import PartitionEntry
 from jade_gui.classes.partition import Partition
 
@@ -55,10 +56,10 @@ class PartitionScreen(Adw.Bin):
         self.open_gparted.connect("clicked", self.gparted)
 
     def gparted(self, widget):
-        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/openGparted.sh"])
+        CommandUtils.run_command(["pkexec", "gparted"])
 
     def bash(self, widget):
-        subprocess.run([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/openBash.sh"])
+        CommandUtils.run_command(["gnome-terminal", "--", "bash"])
 
     def check_partitions(self, widget):
         self.partition_list.select_all()

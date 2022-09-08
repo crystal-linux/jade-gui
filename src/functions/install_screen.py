@@ -21,6 +21,8 @@ import subprocess, os, shutil
 import asyncio
 from gi.repository import Gtk, GLib, Adw
 from gettext import gettext as _
+from jade_gui.utils.command import CommandUtils
+
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/pages/install_screen.ui')
 class InstallScreen(Adw.Bin):
@@ -37,7 +39,7 @@ class InstallScreen(Adw.Bin):
     def install(self):
         prefs = self.window.summary_screen.installprefs.generate_json()
         with open(os.getenv("HOME")+"/test.log", "wb") as f:
-            process = subprocess.Popen([shutil.which("bash"), "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/install.sh"], stdout=subprocess.PIPE)
+            process = CommandUtils.run_command(["pkexec", "jade", "config", "~/.config/jade.json"])
             for c in iter(lambda: process.stdout.read(1), b""):
                 log=c
                 try:
