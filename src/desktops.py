@@ -1,5 +1,5 @@
 desktops = [
-#   "Onyx",
+    "Onyx",
     "GNOME",
     "Plasma",
     "Budgie",
