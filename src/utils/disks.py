@@ -52,7 +52,6 @@ def get_uefi():
     return "BIOS" if output == "0" else "UEFI"
 
 def get_disk_type(disk: str):
-    #lsblk -d -o rota $1 | grep -v ROTA
     output = CommandUtils.check_output(['lsblk', '-d', '-o', 'rota', disk])
     output = output.split()
     output = [x for x in output if 'ROTA' not in x]
