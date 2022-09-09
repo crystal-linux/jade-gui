@@ -11,7 +11,7 @@ finish-args:
     - --device=dri
     - --socket=wayland
     - --talk-name=org.freedesktop.Flatpak
-    - --filesystem=~/.config/:rw
+    - --filesystem=home:rw
 
 cleanup:
     - /include
