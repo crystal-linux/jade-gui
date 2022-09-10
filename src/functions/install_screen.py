@@ -39,7 +39,7 @@ class InstallScreen(Adw.Bin):
     def install(self):
         prefs = self.window.summary_screen.installprefs.generate_json()
         with open(os.getenv("HOME")+"/jade-gui.log", "wb") as f:
-            process = CommandUtils.run_command(["pkexec", "jade", "config", os.getenv("HOME")+/.config/jade.json"])
+            process = CommandUtils.run_command(["pkexec", "jade", "config", os.getenv("HOME")+"/.config/jade.json"])
             for c in iter(lambda: process.stdout.read(1), b""):
                 log=c
                 try:
