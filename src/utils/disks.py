@@ -48,8 +48,9 @@ def get_disk_size(disk: str):
     return str(math.floor(int(size)/1000**3))+" GB"
 
 def get_uefi():
-    output = CommandUtils.check_output(['-d', '/sys/firmware/efi'])
-    return "BIOS" if output == "0" else "UEFI"
+    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/checkEFI.sh"], capture_output=True)
+    isEfi=True if command.stdout.decode('utf-8').strip('\n') == "UEFI" else False
+    return isEfi
 
 def get_disk_type(disk: str):
     output = CommandUtils.check_output(['lsblk', '-d', '-o', 'rota', disk])
