@@ -3,6 +3,7 @@ desktops = [
     "GNOME",
     "Plasma",
     "Budgie",
+    "XFCE",
     "MATE",
     "Cinnamon",
     "LXQt",
