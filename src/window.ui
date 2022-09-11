@@ -88,11 +88,21 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="orientation">horizontal</property>
+                    <property name="orientation">vertical</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="vexpand">true</property>
                     <property name="hexpand">true</property>
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkLabel" id="no_internet">
+                        <property name="label">Please connect to the internet first!</property>
+                        <property name="visible">false</property>
+                        <style>
+                          <class name="error"/>
+                        </style>
+                      </object>
+                    </child>
                     <child>
                       <object class="GtkButton" id="next_button">
                         <property name="label">Start</property>
