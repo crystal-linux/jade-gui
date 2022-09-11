@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import urllib.request
 from gi.repository import Gtk, Gdk, Adw
 from jade_gui.classes.partition import Partition
 from jade_gui.widgets.timezone import TimezoneEntry
@@ -52,6 +53,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
     next_button = Gtk.Template.Child()
     back_button = Gtk.Template.Child()
     about_button = Gtk.Template.Child()
+    no_internet = Gtk.Template.Child()
 
 
     def __init__(self, **kwargs):
@@ -150,6 +152,15 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
                 )
             )
         ### ---------
+        try:
+            urllib.request.urlopen("https://getcryst.al", timeout=3)
+            self.next_button.set_sensitive(True)
+            self.no_internet.set_visible(False)
+        except urllib.error.URLError:
+            print("!!!NOT CONNECTED TO THE INTERNET!!!")
+            self.next_button.set_sensitive(False)
+            self.no_internet.set_visible(True)
+
 
     def set_previous_page(self, previous_page):
         if previous_page is None:
