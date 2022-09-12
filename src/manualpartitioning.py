@@ -10,7 +10,8 @@ filesystems = [
     "ext2",
     "ext4",
     "minix",
-    "vfat"
+    "vfat",
+    "f2fs"
 ]
 
 mountpoints = [
