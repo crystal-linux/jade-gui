@@ -18,7 +18,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import urllib.request
-from gi.repository import Gtk, Gdk, Adw
+import time
+from gi.repository import Gtk, Gdk, GLib, Adw
 from jade_gui.classes.partition import Partition
 from jade_gui.widgets.timezone import TimezoneEntry
 from jade_gui.widgets.layout import KeyboardLayout
@@ -39,6 +40,7 @@ from jade_gui.locales.locales_list import locations
 from jade_gui.keymaps import keymaps
 from jade_gui.desktops import desktops
 from jade_gui.utils import disks
+from jade_gui.utils.threading import RunAsync
 
 @Gtk.Template(resource_path='/al/getcryst/jadegui/window.ui')
 class JadeGuiWindow(Gtk.ApplicationWindow):
@@ -84,6 +86,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.back_button.connect("clicked", self.previousPage)
         self.about_button.connect("clicked", self.show_about)
         self.partition_mode = "Auto"
+        self.do_check_internet = True
         ### ---------
         self.previous_page = None
         self.set_previous_page(None)
@@ -152,15 +155,23 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
                 )
             )
         ### ---------
-        try:
-            urllib.request.urlopen("https://getcryst.al", timeout=3)
-            self.next_button.set_sensitive(True)
-            self.no_internet.set_visible(False)
-        except urllib.error.URLError:
-            print("!!!NOT CONNECTED TO THE INTERNET!!!")
-            self.next_button.set_sensitive(False)
-            self.no_internet.set_visible(True)
+        RunAsync(self.check_internet)
 
+
+    def check_internet(self):
+    	while self.do_check_internet:
+    	    try:
+    	        urllib.request.urlopen("https://getcryst.al", timeout=1)
+    	        GLib.idle_add(self.allow_continue, True)
+    	        print("internet!")
+    	    except:
+    	        GLib.idle_add(self.allow_continue, False)
+    	        print("no internet!")
+    	    time.sleep(1)
+
+    def allow_continue(self, allow):
+    	self.next_button.set_sensitive(allow)
+    	self.no_internet.set_visible(not allow)
 
     def set_previous_page(self, previous_page):
         if previous_page is None:
@@ -175,6 +186,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
 
     def carousel_next(self, widget):
         self.set_previous_page(None)
+        self.do_check_internet = False
         self.carousel.scroll_to(self.timezone_screen, True)
 
     def confirmQuit(self, idk):
