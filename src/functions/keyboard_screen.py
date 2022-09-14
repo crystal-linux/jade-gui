@@ -27,8 +27,12 @@ from gettext import gettext as _
 class KeyboardScreen(Adw.Bin):
     __gtype_name__ = 'KeyboardScreen'
 
+    event_controller = Gtk.EventControllerKey.new()
+
     next_page_button = Gtk.Template.Child()
     layout_list = Gtk.Template.Child()
+    keyboard_entry_search = Gtk.Template.Child()
+    keyboard_search = Gtk.Template.Child()
 
     layout = None
     variant = ""
@@ -40,6 +44,8 @@ class KeyboardScreen(Adw.Bin):
         self.carousel = main_carousel
         self.next_page = next_page
         self.next_page_button.connect("clicked", self.carousel_next)
+        self.event_controller.connect("key-released", self.search_keyboards)
+        self.keyboard_entry_search.add_controller(self.event_controller)
 
     def carousel_next(self, widget=None):
         self.window.set_previous_page(self.window.timezone_screen)
@@ -52,4 +58,21 @@ class KeyboardScreen(Adw.Bin):
     def carousel_next_summary(self, widget):
         self.next_page.move_to_summary=True
         self.carousel.scroll_to(self.next_page, True)
+
+    def search_keyboards(self, *args):
+        terms = self.keyboard_entry_search.get_text()
+        self.layout_list.set_filter_func(self.filter_layouts, terms)
+
+    @staticmethod
+    def filter_layouts(row, terms=None):
+        try:
+            text = row.get_title()
+            text = text.lower() + row.get_subtitle().lower()
+            if terms.lower() in text:
+                return True
+        except:
+            return True
+        return False
+
+
 
