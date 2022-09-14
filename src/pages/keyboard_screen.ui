@@ -14,12 +14,34 @@
             <property name="vexpand">true</property>
             <property name="title">Select Keyboard Layout</property>
             <child>
-              <object class="AdwPreferencesPage">
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
                 <child>
-                  <object class="AdwPreferencesGroup" id="layout_list">
-                    <property name="hexpand">true</property>
-                    <property name="margin-end">20</property>
-                    <property name="margin-start">20</property>
+                  <object class="GtkBox" id="keyboard_search">
+                    <child>
+                      <object class="GtkSearchEntry" id="keyboard_entry_search">
+                        <property name="hexpand">true</property>
+                        <property name="margin-end">30</property>
+                        <property name="margin-start">30</property>
+                        <property name="placeholder-text">Search for a keyboard layout</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesPage">
+                    <child>
+                      <object class="AdwPreferencesGroup">
+                        <child>
+                          <object class="GtkListBox" id="layout_list">
+                            <property name="selection-mode">none</property>
+                            <style>
+                              <class name="boxed-list"/>
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

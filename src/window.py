@@ -104,7 +104,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
             for variant in keymap.variant:
                 if variant != firstvariant.variant:
                     layout.add_row(KeyboardVariant(window=self, country=layout.country, country_shorthand=layout.country_shorthand, variant=variant, button_group=firstvariant.select_variant, **kwargs))
-            self.keyboard_screen.layout_list.add(layout)
+            self.keyboard_screen.layout_list.append(layout)
         ### ---------
 
         ### Test desktops
@@ -189,7 +189,7 @@ class JadeGuiWindow(Gtk.ApplicationWindow):
         self.do_check_internet = False
         self.carousel.scroll_to(self.timezone_screen, True)
 
-    def confirmQuit(self, idk):
+    def confirmQuit(self, widget):
 
         def handle_response(_widget, response_id):
             if response_id == Gtk.ResponseType.YES:
