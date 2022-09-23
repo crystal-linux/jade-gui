@@ -25,6 +25,9 @@ class Partition():
         self.size = size
 
     def generate_jade_entry(self):
-        return "/mnt"+self.mountpoint+":/dev/"+self.partition[5:]+":"+self.filesystem
+        mountpoint = "/mnt"+self.mountpoint
+        if self.mountpoint == "none":
+            mountpoint = "none"
+        return mountpoint+":/dev/"+self.partition[5:]+":"+self.filesystem
 
 
