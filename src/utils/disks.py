@@ -31,6 +31,7 @@ def get_disks():
     output = [x for x in output if 'NAME' not in x]
     output = [x for x in output if 'loop' not in x]
     output = [x for x in output if 'sr' not in x]
+    output = [x for x in output if 'fd' not in x]
     return output
 
 def get_disk_size(disk: str):
