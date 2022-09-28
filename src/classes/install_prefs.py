@@ -91,7 +91,6 @@ class InstallPrefs:
             'desktop': self.desktop.lower(),
             'timeshift': self.timeshift_enabled,
             'extra_packages': [
-                'ttf-nerd-fonts-symbols-1000-em-mono',
                 'firefox'
             ],
             'flatpak': True,
