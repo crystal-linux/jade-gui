@@ -96,7 +96,7 @@ class UserScreen(Adw.Bin):
             self.sudo_enabled = switch_state
 
     def verify_password(self, widget):
-        if self.password_entry.get_text() == self.password_confirmation.get_text():
+        if self.password_entry.get_text() == self.password_confirmation.get_text() and self.password_entry.get_text().strip():
             #self.next_page_button.set_sensitive(True)
             self.password_filled = True;
             self.verify_continue();
