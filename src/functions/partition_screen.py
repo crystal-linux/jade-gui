@@ -93,6 +93,7 @@ class PartitionScreen(Adw.Bin):
             print(row.get_title())
             row.select_button.set_active(True)
             self.selected_partition = row
+            self.next_page_button.set_sensitive(True)
         else:
             print("ERROR: invalid row slected")
 
@@ -100,3 +101,4 @@ class PartitionScreen(Adw.Bin):
         self.window.set_previous_page(self.window.misc_screen)
         self.window.summary_screen.initialize()
         self.carousel.scroll_to(self.next_page, True)
+

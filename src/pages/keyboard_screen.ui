@@ -58,6 +58,7 @@
                 <property name="halign">end</property>
                 <property name="valign">end</property>
                 <property name="tooltip-text">Move to next page</property>
+                <property name="sensitive">False</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>
@@ -69,3 +70,4 @@
     </child>
   </template>
 </interface>
+

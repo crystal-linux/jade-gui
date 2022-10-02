@@ -52,6 +52,7 @@ class TimezoneScreen(Adw.Bin):
         if row is not None or row is not self.timezone_search:
             print(row.get_title())
             self.chosen_timezone = row
+            self.next_page_button.set_sensitive(True)
         else:
             print("row is none!!")
 
@@ -81,4 +82,5 @@ class TimezoneScreen(Adw.Bin):
         except:
             return True
         return False
+
 

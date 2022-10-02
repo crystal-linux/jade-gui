@@ -57,6 +57,8 @@ class DesktopScreen(Adw.Bin):
             print(row.get_title())
             self.chosen_desktop = row.get_title()
             row.select_button.set_active(True)
+            self.next_page_button.set_sensitive(True)
         else:
             print("row is none!!")
+
 

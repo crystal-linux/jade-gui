@@ -47,5 +47,7 @@ class DiskEntry(Adw.ActionRow):
         if check_button.props.active and len(self.window.available_disks) != 1:
             row.emit('activate')
         self.window.partition_screen.selected_partition = self
+        self.window.partition_screen.next_page_button.set_sensitive(True)
+
 
 
