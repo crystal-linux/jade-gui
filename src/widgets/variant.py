@@ -40,4 +40,6 @@ class KeyboardVariant(Adw.ActionRow):
 
     def selected(self, widget):
         self.window.keyboard_screen.variant=self
+        self.window.keyboard_screen.next_page_button.set_sensitive(True)
+
 

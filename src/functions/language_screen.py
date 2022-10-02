@@ -51,6 +51,7 @@ class LanguageScreen(Adw.Bin):
         if row is not None or row is not self.language_search:
             print(row.get_title())
             self.chosen_language = row
+            self.next_page_button.set_sensitive(False)
         else:
             print("row is none!!")
 
@@ -80,4 +81,5 @@ class LanguageScreen(Adw.Bin):
         except:
             return True
         return False
+
 

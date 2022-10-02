@@ -36,6 +36,8 @@ class UserScreen(Adw.Bin):
     username = ""
     sudo_enabled = True
     root_enabled = True
+    username_filled = False
+    password_filled = False
     move_to_summary = False
 
     def __init__(self, window, main_carousel, next_page, application, **kwargs):
@@ -60,11 +62,13 @@ class UserScreen(Adw.Bin):
         if not re.search("^[a-z_]([a-z0-9_-]{0,31}|[a-z0-9_-]{0,30}\$)$", input):
             print("Invalid username!")
             self.username_entry.add_css_class('error')
-            self.next_page_button.set_sensitive(False)
+            self.username_filled = False
+            self.verify_continue()
         else:
             print("Valid username!")
             self.username_entry.remove_css_class('error')
-            self.next_page_button.set_sensitive(True)
+            self.username_filled = True
+            self.verify_continue()
             self.username = input
 
     def enable_root_user(self, widget, switch_state):
@@ -93,12 +97,21 @@ class UserScreen(Adw.Bin):
 
     def verify_password(self, widget):
         if self.password_entry.get_text() == self.password_confirmation.get_text():
-            self.next_page_button.set_sensitive(True)
+            #self.next_page_button.set_sensitive(True)
+            self.password_filled = True;
+            self.verify_continue();
             self.password_confirmation.remove_css_class('error')
             self.password = self.encrypt_password(self.password_entry.get_text())
         else:
-            self.next_page_button.set_sensitive(False)
+            self.password_filled = False;
+            self.verify_continue();
             self.password_confirmation.add_css_class('error')
+
+    def verify_continue(self):
+        if self.password_filled and self.username_filled:
+            self.next_page_button.set_sensitive(True)
+        else:
+            self.next_page_button.set_sensitive(False)
 
     def encrypt_password(self, password):
         command=subprocess.run([shutil.which("openssl"), "passwd", "-crypt", password], capture_output=True)
@@ -117,4 +130,5 @@ class UserScreen(Adw.Bin):
     def carousel_next_summary(self, widget):
         self.next_page.move_to_summary=True
         self.carousel.scroll_to(self.next_page, True)
+
 
