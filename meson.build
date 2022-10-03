@@ -7,7 +7,7 @@ project('jade-gui',
 )
 
 i18n = import('i18n')
-
+localedir = get_option('localedir')
 gnome = import('gnome')
 
 

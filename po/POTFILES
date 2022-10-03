@@ -2,7 +2,16 @@ data/al.getcryst.jadegui.desktop.in
 data/al.getcryst.jadegui.appdata.xml.in
 data/al.getcryst.jadegui.gschema.xml
 src/window.ui
-
+src/pages/desktop_screen.ui
+src/pages/finished_screen.ui
+src/pages/install_screen.ui
+src/pages/keyboard_screen.ui
+src/pages/language_screen.ui
+src/pages/misc_screen.ui
+src/pages/partition_screen.ui
+src/pages/summary_screen.ui
+src/pages/timezone_screen.ui
+src/pages/user_screen.ui
 src/main.py
 src/window.py
 

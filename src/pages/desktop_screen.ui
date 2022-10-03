@@ -10,8 +10,8 @@
         <property name="hexpand">true</property>
         <child>
           <object class="AdwStatusPage">
-            <property name="title">Select Desktop</property>
-            <property name="description">You can install more desktops later.</property>
+            <property name="title" translatable="true">Select Desktop</property>
+            <property name="description" translatable="true">You can install more desktops later.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
@@ -37,7 +37,7 @@
               <object class="GtkButton" id="next_page_button">
                 <property name="margin-end">20</property>
                 <property name="margin-bottom">20</property>
-                <property name="label">Next</property>
+                <property name="label" translatable="true">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
                 <property name="tooltip-text">Move to next page</property>
