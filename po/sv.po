@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Jade 1.5.0
+# Copyright (C) 2022
 # This file is distributed under the same license as the jade_gui package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Luna Jernberg <lunajernberg@gnome.org>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: jade_gui\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: lunajernberg@gnome.org\n"
 "POT-Creation-Date: 2022-10-03 18:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-10-03 18:01++0200\n"
 "Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Language-Team: Swedish\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,253 +18,253 @@ msgstr ""
 
 #: data/al.getcryst.jadegui.desktop.in:3
 msgid "Install Crystal Linux"
-msgstr ""
+msgstr "Installera Crystal Linux"
 
 #: data/al.getcryst.jadegui.appdata.xml.in:7
 msgid "No description"
-msgstr ""
+msgstr "Ingen beskrivning"
 
 #: src/window.ui:17
 msgid "About Jade GUI"
-msgstr ""
+msgstr "Om Jade GUI"
 
 #: src/window.ui:85
 msgid "Welcome to Crystal Linux"
-msgstr ""
+msgstr "Välkommen till Crystal Linux"
 
 #: src/window.ui:86
 msgid "Press Start to start installing Crystal Linux!"
-msgstr ""
+msgstr "Tryck på Start för att börja installera Crystal Linux!"
 
 #: src/pages/desktop_screen.ui:13
 msgid "Select Desktop"
-msgstr ""
+msgstr "Välj Skrivbordsmiljö"
 
 #: src/pages/desktop_screen.ui:14
 msgid "You can install more desktops later."
-msgstr ""
+msgstr "Du kan installera fler skrivbordsmiljöer senare."
 
 #: src/pages/desktop_screen.ui:40 src/pages/keyboard_screen.ui:57
 #: src/pages/language_screen.ui:57 src/pages/misc_screen.ui:81
 #: src/pages/partition_screen.ui:135
 msgid "Next"
-msgstr ""
+msgstr "Nästa"
 
 #: src/pages/finished_screen.ui:15
 msgid "Installation Completed!"
-msgstr ""
+msgstr "Installation slutförd!"
 
 #: src/pages/finished_screen.ui:16
 msgid "Reboot the device to start using Crystal Linux!"
-msgstr ""
+msgstr "Starta om enheten för att börja använda Crystal Linux!"
 
 #: src/pages/finished_screen.ui:28
 msgid "Reboot"
-msgstr ""
+msgstr "Starta om"
 
 #: src/pages/install_screen.ui:15
 msgid "Installing Crystal"
-msgstr ""
+msgstr "Installerar Crystal"
 
 #: src/pages/install_screen.ui:16
 msgid "This may take some time"
-msgstr ""
+msgstr "Detta kan ta lite tid"
 
 #: src/pages/keyboard_screen.ui:15
 msgid "Select Keyboard Layout"
-msgstr ""
+msgstr "Välj Tangentbordslayout"
 
 #: src/pages/language_screen.ui:15
 msgid "Select additional locales"
-msgstr ""
+msgstr "Välj ytterligare lokaler"
 
 #: src/pages/language_screen.ui:16
 msgid "Select additional locales to enable"
-msgstr ""
+msgstr "Välj ytterligare lokaler att aktivera"
 
 #: src/pages/misc_screen.ui:15
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 #: src/pages/misc_screen.ui:22
 msgid "Enter Hostname"
-msgstr ""
+msgstr "Ange värdnamn"
 
 #: src/pages/misc_screen.ui:33
 msgid "IPv6 loopback"
-msgstr ""
+msgstr "IPv6 loopback"
 
 #: src/pages/misc_screen.ui:34
 msgid "This can fix IPv6 connectivity issues with some ISPs."
-msgstr ""
+msgstr "Detta kan åtgärda IPv6-anslutningsproblem hos vissa internetleverantörer."
 
 #: src/pages/misc_screen.ui:45
 msgid "Timeshift"
-msgstr ""
+msgstr "Timeshift"
 
 #: src/pages/misc_screen.ui:46
 msgid "Support snapshots as a means to roll back to earlier states of the system."
-msgstr ""
+msgstr "Stödjer ögonblicksbilder som ett sätt att återgå till tidigare tillstånd av systemet."
 
 #: src/pages/misc_screen.ui:57
 msgid "Zramd"
-msgstr ""
+msgstr "Zramd"
 
 #: src/pages/misc_screen.ui:58
 msgid "Creates a compressed area of Swap in RAM."
-msgstr ""
+msgstr "Skapar ett komprimerat område av Swap i RAM."
 
 #: src/pages/partition_screen.ui:26
 msgid "Select partitions to install to"
-msgstr ""
+msgstr "Välj partitioner att installera till"
 
 #: src/pages/partition_screen.ui:27
 msgid "Make sure to have at least one root partition"
-msgstr ""
+msgstr "Se till att ha minst en root partition"
 
 #: src/pages/partition_screen.ui:37
 msgid "Quick Actions"
-msgstr ""
+msgstr "Snabb åtgärder"
 
 #: src/pages/partition_screen.ui:45
 msgid "Automatic Partitioning"
-msgstr ""
+msgstr "Automatisk partitionering"
 
 #: src/pages/partition_screen.ui:50
 msgid "Open GParted"
-msgstr ""
+msgstr "Öppna GParted"
 
 #: src/pages/partition_screen.ui:55
 msgid "Open terminal"
-msgstr ""
+msgstr "Öppna terminal"
 
 #: src/pages/partition_screen.ui:68
 msgid "Available partitions"
-msgstr ""
+msgstr "Tillgängliga partitioner"
 
 #: src/pages/partition_screen.ui:96
 msgid "Select Installation Disk"
-msgstr ""
+msgstr Välj disk att installera till"
 
 #: src/pages/partition_screen.ui:97
 msgid ""
 "Select the disk you want to install Crystal Linux on. This will wipe the "
 "entire disk you selected."
-msgstr ""
+msgstr "Välj den disk du vill installera Crystal Linux på. Detta kommer att rensa hela disken du valde."
 
 #: src/pages/partition_screen.ui:107
 msgid "Switch to manual partitioning"
-msgstr ""
+msgstr "Ändra till manuell partitionering"
 
 #: src/pages/summary_screen.ui:15
 msgid "Summary"
-msgstr ""
+msgstr "Sammanfattning"
 
 #: src/pages/summary_screen.ui:21
 msgid "Timezone and Locale"
-msgstr ""
+msgstr "Tidszon och lokal"
 
 #: src/pages/summary_screen.ui:27
 msgid "region/location"
-msgstr ""
+msgstr "region/plats"
 
 #: src/pages/summary_screen.ui:47
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tangentbordslayout"
 
 #: src/pages/summary_screen.ui:53
 msgid "layout"
-msgstr ""
+msgstr "layout"
 
 #: src/pages/summary_screen.ui:73
 msgid "User Settings"
-msgstr ""
+msgstr "Användarinställningar"
 
 #: src/pages/summary_screen.ui:79
 msgid "username"
-msgstr ""
+msgstr "användarnamn"
 
 #: src/pages/summary_screen.ui:91
 msgid "sudo enabled/disabled"
-msgstr ""
+msgstr "sudo aktiverad/inaktiverad"
 
 #: src/pages/summary_screen.ui:103
 msgid "root enabled/disabled"
-msgstr ""
+msgstr "root aktiverad/inaktiverad"
 
 #: src/pages/summary_screen.ui:122
 msgid "Desktop"
-msgstr ""
+msgstr "Skrivbord"
 
 #: src/pages/summary_screen.ui:128
 msgid "desktop"
-msgstr ""
+msgstr "skrivbord"
 
 #: src/pages/summary_screen.ui:147
 msgid "Partition Settings"
-msgstr ""
+msgstr "Partitionsinställningar"
 
 #: src/pages/summary_screen.ui:153
 msgid "selected install partition"
-msgstr ""
+msgstr "vald installationspartition"
 
 #: src/pages/summary_screen.ui:166
 msgid "legacy bios/uefi"
-msgstr ""
+msgstr "äldre bios/uefi"
 
 #: src/pages/summary_screen.ui:178
 msgid "Miscellaneous Settings"
-msgstr ""
+msgstr "Diverse inställningar"
 
 #: src/pages/summary_screen.ui:184
 msgid "ipv6 enabled/disabled"
-msgstr ""
+msgstr "ipv6 aktiverad/inaktiverad"
 
 #: src/pages/summary_screen.ui:196
 msgid "timeshift enabled/disabled"
-msgstr ""
+msgstr "timeshift aktiverad/inaktiverad"
 
 #: src/pages/summary_screen.ui:208
 msgid "zramd enabled/disabled"
-msgstr ""
+msgstr "zramd aktiverad/inaktiverad"
 
 #: src/pages/summary_screen.ui:238 src/pages/timezone_screen.ui:59
 #: src/pages/user_screen.ui:83
 msgid "Move to next page"
-msgstr ""
+msgstr "Gå till nästa sida"
 
 #: src/pages/timezone_screen.ui:15
 msgid "Select Timezone"
-msgstr ""
+msgstr "Välj tidszon"
 
 #: src/pages/timezone_screen.ui:26
 msgid "Search for a timezone"
-msgstr ""
+msgstr "Sök efter en tidszon"
 
 #: src/pages/user_screen.ui:15
 msgid "Create User"
-msgstr ""
+msgstr "Skapa användare"
 
 #: src/pages/user_screen.ui:16
 msgid "You can add more users in the settings on the installed system."
-msgstr ""
+msgstr "Du kan lägga till fler användare i Inställningar på det installerade systemet."
 
 #: src/pages/user_screen.ui:23
 msgid "Enter Username"
-msgstr ""
+msgstr "Ange användarnamn"
 
 #: src/pages/user_screen.ui:28
 msgid "Enter Password"
-msgstr ""
+msgstr "Ange lösenord"
 
 #: src/pages/user_screen.ui:33
 msgid "Re-enter Password"
-msgstr ""
+msgstr "Ange lösenordet igen"
 
 #: src/pages/user_screen.ui:44
 msgid "Enable Administrative Rights for User"
-msgstr ""
+msgstr "Aktivera administrativa rättigheter för användare"
 
 #: src/pages/user_screen.ui:56
 msgid "Enable Superuser Account"
-msgstr ""
+msgstr "Aktivera superanvändare konto"
