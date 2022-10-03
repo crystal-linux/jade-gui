@@ -1,0 +1,270 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the jade_gui package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jade_gui\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-03 18:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/al.getcryst.jadegui.desktop.in:3
+msgid "Install Crystal Linux"
+msgstr ""
+
+#: data/al.getcryst.jadegui.appdata.xml.in:7
+msgid "No description"
+msgstr ""
+
+#: src/window.ui:17
+msgid "About Jade GUI"
+msgstr ""
+
+#: src/window.ui:85
+msgid "Welcome to Crystal Linux"
+msgstr ""
+
+#: src/window.ui:86
+msgid "Press Start to start installing Crystal Linux!"
+msgstr ""
+
+#: src/pages/desktop_screen.ui:13
+msgid "Select Desktop"
+msgstr ""
+
+#: src/pages/desktop_screen.ui:14
+msgid "You can install more desktops later."
+msgstr ""
+
+#: src/pages/desktop_screen.ui:40 src/pages/keyboard_screen.ui:57
+#: src/pages/language_screen.ui:57 src/pages/misc_screen.ui:81
+#: src/pages/partition_screen.ui:135
+msgid "Next"
+msgstr ""
+
+#: src/pages/finished_screen.ui:15
+msgid "Installation Completed!"
+msgstr ""
+
+#: src/pages/finished_screen.ui:16
+msgid "Reboot the device to start using Crystal Linux!"
+msgstr ""
+
+#: src/pages/finished_screen.ui:28
+msgid "Reboot"
+msgstr ""
+
+#: src/pages/install_screen.ui:15
+msgid "Installing Crystal"
+msgstr ""
+
+#: src/pages/install_screen.ui:16
+msgid "This may take some time"
+msgstr ""
+
+#: src/pages/keyboard_screen.ui:15
+msgid "Select Keyboard Layout"
+msgstr ""
+
+#: src/pages/language_screen.ui:15
+msgid "Select additional locales"
+msgstr ""
+
+#: src/pages/language_screen.ui:16
+msgid "Select additional locales to enable"
+msgstr ""
+
+#: src/pages/misc_screen.ui:15
+msgid "Miscellaneous"
+msgstr ""
+
+#: src/pages/misc_screen.ui:22
+msgid "Enter Hostname"
+msgstr ""
+
+#: src/pages/misc_screen.ui:33
+msgid "IPv6 loopback"
+msgstr ""
+
+#: src/pages/misc_screen.ui:34
+msgid "This can fix IPv6 connectivity issues with some ISPs."
+msgstr ""
+
+#: src/pages/misc_screen.ui:45
+msgid "Timeshift"
+msgstr ""
+
+#: src/pages/misc_screen.ui:46
+msgid "Support snapshots as a means to roll back to earlier states of the system."
+msgstr ""
+
+#: src/pages/misc_screen.ui:57
+msgid "Zramd"
+msgstr ""
+
+#: src/pages/misc_screen.ui:58
+msgid "Creates a compressed area of Swap in RAM."
+msgstr ""
+
+#: src/pages/partition_screen.ui:26
+msgid "Select partitions to install to"
+msgstr ""
+
+#: src/pages/partition_screen.ui:27
+msgid "Make sure to have at least one root partition"
+msgstr ""
+
+#: src/pages/partition_screen.ui:37
+msgid "Quick Actions"
+msgstr ""
+
+#: src/pages/partition_screen.ui:45
+msgid "Automatic Partitioning"
+msgstr ""
+
+#: src/pages/partition_screen.ui:50
+msgid "Open GParted"
+msgstr ""
+
+#: src/pages/partition_screen.ui:55
+msgid "Open terminal"
+msgstr ""
+
+#: src/pages/partition_screen.ui:68
+msgid "Available partitions"
+msgstr ""
+
+#: src/pages/partition_screen.ui:96
+msgid "Select Installation Disk"
+msgstr ""
+
+#: src/pages/partition_screen.ui:97
+msgid ""
+"Select the disk you want to install Crystal Linux on. This will wipe the "
+"entire disk you selected."
+msgstr ""
+
+#: src/pages/partition_screen.ui:107
+msgid "Switch to manual partitioning"
+msgstr ""
+
+#: src/pages/summary_screen.ui:15
+msgid "Summary"
+msgstr ""
+
+#: src/pages/summary_screen.ui:21
+msgid "Timezone and Locale"
+msgstr ""
+
+#: src/pages/summary_screen.ui:27
+msgid "region/location"
+msgstr ""
+
+#: src/pages/summary_screen.ui:47
+msgid "Keyboard Layout"
+msgstr ""
+
+#: src/pages/summary_screen.ui:53
+msgid "layout"
+msgstr ""
+
+#: src/pages/summary_screen.ui:73
+msgid "User Settings"
+msgstr ""
+
+#: src/pages/summary_screen.ui:79
+msgid "username"
+msgstr ""
+
+#: src/pages/summary_screen.ui:91
+msgid "sudo enabled/disabled"
+msgstr ""
+
+#: src/pages/summary_screen.ui:103
+msgid "root enabled/disabled"
+msgstr ""
+
+#: src/pages/summary_screen.ui:122
+msgid "Desktop"
+msgstr ""
+
+#: src/pages/summary_screen.ui:128
+msgid "desktop"
+msgstr ""
+
+#: src/pages/summary_screen.ui:147
+msgid "Partition Settings"
+msgstr ""
+
+#: src/pages/summary_screen.ui:153
+msgid "selected install partition"
+msgstr ""
+
+#: src/pages/summary_screen.ui:166
+msgid "legacy bios/uefi"
+msgstr ""
+
+#: src/pages/summary_screen.ui:178
+msgid "Miscellaneous Settings"
+msgstr ""
+
+#: src/pages/summary_screen.ui:184
+msgid "ipv6 enabled/disabled"
+msgstr ""
+
+#: src/pages/summary_screen.ui:196
+msgid "timeshift enabled/disabled"
+msgstr ""
+
+#: src/pages/summary_screen.ui:208
+msgid "zramd enabled/disabled"
+msgstr ""
+
+#: src/pages/summary_screen.ui:238 src/pages/timezone_screen.ui:59
+#: src/pages/user_screen.ui:83
+msgid "Move to next page"
+msgstr ""
+
+#: src/pages/timezone_screen.ui:15
+msgid "Select Timezone"
+msgstr ""
+
+#: src/pages/timezone_screen.ui:26
+msgid "Search for a timezone"
+msgstr ""
+
+#: src/pages/user_screen.ui:15
+msgid "Create User"
+msgstr ""
+
+#: src/pages/user_screen.ui:16
+msgid "You can add more users in the settings on the installed system."
+msgstr ""
+
+#: src/pages/user_screen.ui:23
+msgid "Enter Username"
+msgstr ""
+
+#: src/pages/user_screen.ui:28
+msgid "Enter Password"
+msgstr ""
+
+#: src/pages/user_screen.ui:33
+msgid "Re-enter Password"
+msgstr ""
+
+#: src/pages/user_screen.ui:44
+msgid "Enable Administrative Rights for User"
+msgstr ""
+
+#: src/pages/user_screen.ui:56
+msgid "Enable Superuser Account"
+msgstr ""
