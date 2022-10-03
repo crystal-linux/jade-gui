@@ -8,71 +8,76 @@ msgstr ""
 "Project-Id-Version: jade_gui\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 18:58+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-10-03 18:11+0000\n"
+"Last-Translator: axtlos <axtlos@getcryst.al>\n"
+"Language-Team: German <https://i18n.getcryst.al/projects/crystal-linux/"
+"jade-gui/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14\n"
 
 #: data/al.getcryst.jadegui.desktop.in:3
 msgid "Install Crystal Linux"
-msgstr ""
+msgstr "Crystal Linux installieren"
 
 #: data/al.getcryst.jadegui.appdata.xml.in:7
 msgid "No description"
-msgstr ""
+msgstr "Keine Beschreibung"
 
 #: src/window.ui:17
 msgid "About Jade GUI"
-msgstr ""
+msgstr "Über Jade GUI"
 
 #: src/window.ui:85
 msgid "Welcome to Crystal Linux"
-msgstr ""
+msgstr "Wilkommen in Crystal Linux"
 
 #: src/window.ui:86
 msgid "Press Start to start installing Crystal Linux!"
-msgstr ""
+msgstr "Drücken sie Start um Crystal Linux zu installieren!"
 
 #: src/pages/desktop_screen.ui:13
 msgid "Select Desktop"
-msgstr ""
+msgstr "Wählen sie ein Desktop aus"
 
 #: src/pages/desktop_screen.ui:14
 msgid "You can install more desktops later."
-msgstr ""
+msgstr "Sie können mehrere Desktops später installieren."
 
 #: src/pages/desktop_screen.ui:40 src/pages/keyboard_screen.ui:57
 #: src/pages/language_screen.ui:57 src/pages/misc_screen.ui:81
 #: src/pages/partition_screen.ui:135
 msgid "Next"
-msgstr ""
+msgstr "Weiter"
 
 #: src/pages/finished_screen.ui:15
 msgid "Installation Completed!"
-msgstr ""
+msgstr "Installation abgeschlossen!"
 
 #: src/pages/finished_screen.ui:16
+#, fuzzy
 msgid "Reboot the device to start using Crystal Linux!"
-msgstr ""
+msgstr "Starten sie ihr Gerät new um Crystal Linux zu benutzen!"
 
 #: src/pages/finished_screen.ui:28
 msgid "Reboot"
-msgstr ""
+msgstr "Neu Starten"
 
 #: src/pages/install_screen.ui:15
 msgid "Installing Crystal"
-msgstr ""
+msgstr "Crystal Installieren"
 
 #: src/pages/install_screen.ui:16
+#, fuzzy
 msgid "This may take some time"
-msgstr ""
+msgstr "Dies könnte sehr lange dauern"
 
 #: src/pages/keyboard_screen.ui:15
 msgid "Select Keyboard Layout"
-msgstr ""
+msgstr "Tastaturlayout auswählen"
 
 #: src/pages/language_screen.ui:15
 msgid "Select additional locales"
@@ -84,23 +89,24 @@ msgstr ""
 
 #: src/pages/misc_screen.ui:15
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Zusätzliche Einstellungen"
 
 #: src/pages/misc_screen.ui:22
 msgid "Enter Hostname"
-msgstr ""
+msgstr "Hostnamen eingeben"
 
 #: src/pages/misc_screen.ui:33
 msgid "IPv6 loopback"
-msgstr ""
+msgstr "IPv6 Loopback"
 
 #: src/pages/misc_screen.ui:34
 msgid "This can fix IPv6 connectivity issues with some ISPs."
 msgstr ""
+"Dies kann IPv6 Verbindungsprobleme mit bestimmten Internetanbietern beheben"
 
 #: src/pages/misc_screen.ui:45
 msgid "Timeshift"
-msgstr ""
+msgstr "Timeshift"
 
 #: src/pages/misc_screen.ui:46
 msgid "Support snapshots as a means to roll back to earlier states of the system."
@@ -108,7 +114,7 @@ msgstr ""
 
 #: src/pages/misc_screen.ui:57
 msgid "Zramd"
-msgstr ""
+msgstr "Zramd"
 
 #: src/pages/misc_screen.ui:58
 msgid "Creates a compressed area of Swap in RAM."
@@ -116,11 +122,11 @@ msgstr ""
 
 #: src/pages/partition_screen.ui:26
 msgid "Select partitions to install to"
-msgstr ""
+msgstr "Wählen sie die Partition aus, auf der Crystal installiert werden soll"
 
 #: src/pages/partition_screen.ui:27
 msgid "Make sure to have at least one root partition"
-msgstr ""
+msgstr "Es wird eine root Partition benötigt"
 
 #: src/pages/partition_screen.ui:37
 msgid "Quick Actions"
@@ -128,37 +134,39 @@ msgstr ""
 
 #: src/pages/partition_screen.ui:45
 msgid "Automatic Partitioning"
-msgstr ""
+msgstr "Automatisches partitionieren"
 
 #: src/pages/partition_screen.ui:50
 msgid "Open GParted"
-msgstr ""
+msgstr "GParted öffnen"
 
 #: src/pages/partition_screen.ui:55
 msgid "Open terminal"
-msgstr ""
+msgstr "Terminal öffnen"
 
 #: src/pages/partition_screen.ui:68
 msgid "Available partitions"
-msgstr ""
+msgstr "Verfügbare Partitionen"
 
 #: src/pages/partition_screen.ui:96
 msgid "Select Installation Disk"
-msgstr ""
+msgstr "Festplatte zum installieren auswählen"
 
 #: src/pages/partition_screen.ui:97
 msgid ""
 "Select the disk you want to install Crystal Linux on. This will wipe the "
 "entire disk you selected."
 msgstr ""
+"Wählen sie die Festplatte aus, auf der Crystal Linux installiert werden "
+"soll. Dies wird alle Daten auf der Festplatte löschen."
 
 #: src/pages/partition_screen.ui:107
 msgid "Switch to manual partitioning"
-msgstr ""
+msgstr "Zu manuellen partitionieren wechseln"
 
 #: src/pages/summary_screen.ui:15
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #: src/pages/summary_screen.ui:21
 msgid "Timezone and Locale"
@@ -166,51 +174,51 @@ msgstr ""
 
 #: src/pages/summary_screen.ui:27
 msgid "region/location"
-msgstr ""
+msgstr "Region/Standort"
 
 #: src/pages/summary_screen.ui:47
 msgid "Keyboard Layout"
-msgstr ""
+msgstr "Tastaturlayout"
 
 #: src/pages/summary_screen.ui:53
 msgid "layout"
-msgstr ""
+msgstr "Layout"
 
 #: src/pages/summary_screen.ui:73
 msgid "User Settings"
-msgstr ""
+msgstr "Benutzer-einstellungen"
 
 #: src/pages/summary_screen.ui:79
 msgid "username"
-msgstr ""
+msgstr "Benutzername"
 
 #: src/pages/summary_screen.ui:91
 msgid "sudo enabled/disabled"
-msgstr ""
+msgstr "Sudo aktiviert/deaktiviert"
 
 #: src/pages/summary_screen.ui:103
 msgid "root enabled/disabled"
-msgstr ""
+msgstr "Root aktiviert/deaktiviert"
 
 #: src/pages/summary_screen.ui:122
 msgid "Desktop"
-msgstr ""
+msgstr "Desktop"
 
 #: src/pages/summary_screen.ui:128
 msgid "desktop"
-msgstr ""
+msgstr "desktop"
 
 #: src/pages/summary_screen.ui:147
 msgid "Partition Settings"
-msgstr ""
+msgstr "Partition Einstellungen"
 
 #: src/pages/summary_screen.ui:153
 msgid "selected install partition"
-msgstr ""
+msgstr "Ausgewählte installations Partition"
 
 #: src/pages/summary_screen.ui:166
 msgid "legacy bios/uefi"
-msgstr ""
+msgstr "Legacy BIOS/UEFI"
 
 #: src/pages/summary_screen.ui:178
 msgid "Miscellaneous Settings"
@@ -218,53 +226,55 @@ msgstr ""
 
 #: src/pages/summary_screen.ui:184
 msgid "ipv6 enabled/disabled"
-msgstr ""
+msgstr "IPv6 aktiviert/deaktiviert"
 
 #: src/pages/summary_screen.ui:196
 msgid "timeshift enabled/disabled"
-msgstr ""
+msgstr "Timeshift aktiviert/deaktiviert"
 
 #: src/pages/summary_screen.ui:208
 msgid "zramd enabled/disabled"
-msgstr ""
+msgstr "Zramd aktiviert/deaktiviert"
 
 #: src/pages/summary_screen.ui:238 src/pages/timezone_screen.ui:59
 #: src/pages/user_screen.ui:83
 msgid "Move to next page"
-msgstr ""
+msgstr "Zu nächster Seite"
 
 #: src/pages/timezone_screen.ui:15
 msgid "Select Timezone"
-msgstr ""
+msgstr "Zeitzone auswählen"
 
 #: src/pages/timezone_screen.ui:26
 msgid "Search for a timezone"
-msgstr ""
+msgstr "Nach einer Zeitzone suchen"
 
 #: src/pages/user_screen.ui:15
 msgid "Create User"
-msgstr ""
+msgstr "Benutzer Erstellen"
 
 #: src/pages/user_screen.ui:16
 msgid "You can add more users in the settings on the installed system."
 msgstr ""
+"Sie können mehr Nutzer in den Einstellungen im installierten System "
+"hinzufügen."
 
 #: src/pages/user_screen.ui:23
 msgid "Enter Username"
-msgstr ""
+msgstr "Benutzernamen eingeben"
 
 #: src/pages/user_screen.ui:28
 msgid "Enter Password"
-msgstr ""
+msgstr "Password eingeben"
 
 #: src/pages/user_screen.ui:33
 msgid "Re-enter Password"
-msgstr ""
+msgstr "Password bestätigen"
 
 #: src/pages/user_screen.ui:44
 msgid "Enable Administrative Rights for User"
-msgstr ""
+msgstr "Administratorrechte für Nutzer aktivieren"
 
 #: src/pages/user_screen.ui:56
 msgid "Enable Superuser Account"
-msgstr ""
+msgstr "Superuser Nutzer aktivieren"
