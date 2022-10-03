@@ -12,8 +12,8 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Select additional locales</property>
-            <property name="description">Select additional locales to enable</property>
+            <property name="title" translatable="true">Select additional locales</property>
+            <property name="description" translatable="true">Select additional locales to enable</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
@@ -54,7 +54,7 @@
               <object class="GtkButton" id="next_page_button">
                 <property name="margin-end">20</property>
                 <property name="margin-bottom">20</property>
-                <property name="label">Next</property>
+                <property name="label" translatable="true">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
                 <property name="tooltip-text">Move to next page</property>

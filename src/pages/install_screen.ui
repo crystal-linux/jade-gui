@@ -12,8 +12,8 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Installing Crystal</property>
-            <property name="description">This may take some time</property>
+            <property name="title" translatable="true">Installing Crystal</property>
+            <property name="description" translatable="true">This may take some time</property>
             <child>
               <object class="GtkBox">
                 <property name="margin-end">50</property>

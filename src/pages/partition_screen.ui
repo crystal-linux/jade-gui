@@ -23,8 +23,8 @@
         <property name="valign">fill</property>
         <child>
           <object class="AdwStatusPage">
-            <property name="title">Select partitions to install to</property>
-            <property name="description">Make sure to have at least one root partition</property>
+            <property name="title" translatable="true">Select partitions to install to</property>
+            <property name="description" translatable="true">Make sure to have at least one root partition</property>
             <property name="vexpand">true</property>
             <child>
               <object class="GtkBox">
@@ -34,7 +34,7 @@
                   <object class="AdwClamp">
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Quick Actions</property>
+                    <property name="title" translatable="true">Quick Actions</property>
                     <child>
                       <object class="GtkBox">
                         <property name="orientation">horizontal</property>
@@ -42,17 +42,17 @@
                         <property name="spacing">10</property>
                         <child>
                           <object class="GtkButton" id="automatic_partitioning">
-                            <property name="label">Automatic Partitioning</property>
+                            <property name="label" translatable="true">Automatic Partitioning</property>
                           </object>
                         </child>
                         <child>
                           <object class="GtkButton" id="open_gparted">
-                            <property name="label">Open GParted</property>
+                            <property name="label" translatable="true">Open GParted</property>
                           </object>
                         </child>
                         <child>
                           <object class="GtkButton" id="open_bash">
-                            <property name="label">Open terminal</property>
+                            <property name="label" translatable="true">Open terminal</property>
                           </object>
                         </child>
                       </object>
@@ -65,7 +65,7 @@
               <object class="AdwClamp">
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Available partitions</property>
+                    <property name="title" translatable="true">Available partitions</property>
                     <property name="header-suffix">reload_partitions</property>
                     <child>
                       <object class="GtkListBox" id="partition_list">
@@ -93,8 +93,8 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Select Installation Disk</property>
-            <property name="description">Select the disk you want to install Crystal Linux on. This will wipe the entire disk you selected.</property>
+            <property name="title" translatable="true">Select Installation Disk</property>
+            <property name="description" translatable="true">Select the disk you want to install Crystal Linux on. This will wipe the entire disk you selected.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
@@ -104,7 +104,7 @@
                         <property name="margin-start">70</property>
                         <property name="margin-end">70</property>
                         <property name="margin-bottom">20</property>
-                        <property name="label">Switch to manual partitioning</property>
+                        <property name="label" translatable="true">Switch to manual partitioning</property>
                         <style>
                           <class name="pill"/>
                         </style>
@@ -132,7 +132,7 @@
               <object class="GtkButton" id="next_page_button">
                 <property name="margin-end">20</property>
                 <property name="margin-bottom">20</property>
-                <property name="label">Next</property>
+                <property name="label" translatable="true">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
                 <property name="tooltip-text">Move to next page</property>

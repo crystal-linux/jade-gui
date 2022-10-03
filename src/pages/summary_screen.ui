@@ -12,19 +12,19 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Summary</property>
+            <property name="title" translatable="true">Summary</property>
             <property name="description">Last chance to verify everything.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Timezone and Locale</property>
+                    <property name="title" translatable="true">Timezone and Locale</property>
                     <child>
                       <object class="GtkListBox" id="timezone_listbox">
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow" id="timezone_label">
-                            <property name="title">region/location</property>
+                            <property name="title" translatable="true">region/location</property>
                             <property name="subtitle">locale</property>
                             <child>
                               <object class="GtkButton" id="timezone_button">
@@ -44,13 +44,13 @@
                 </child>
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Keyboard Layout</property>
+                    <property name="title" translatable="true">Keyboard Layout</property>
                     <child>
                       <object class="GtkListBox" id="keyboard_listbox">
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow" id="keyboard_label">
-                            <property name="title">layout</property>
+                            <property name="title" translatable="true">layout</property>
                             <property name="subtitle">keymap</property>
                             <child>
                               <object class="GtkButton" id="keyboard_button">
@@ -70,13 +70,13 @@
                 </child>
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">User Settings</property>
+                    <property name="title" translatable="true">User Settings</property>
                     <child>
                       <object class="GtkListBox" id="user_listbox">
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow" id="username_label">
-                            <property name="title">username</property>
+                            <property name="title" translatable="true">username</property>
                             <child>
                               <object class="GtkButton" id="username_button">
                                 <property name="valign">center</property>
@@ -88,7 +88,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow" id="sudo_label">
-                            <property name="title">sudo enabled/disabled</property>
+                            <property name="title" translatable="true">sudo enabled/disabled</property>
                             <child>
                               <object class="GtkButton" id="sudo_button">
                                 <property name="valign">center</property>
@@ -100,7 +100,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow" id="root_label">
-                            <property name="title">root enabled/disabled</property>
+                            <property name="title" translatable="true">root enabled/disabled</property>
                             <child>
                               <object class="GtkButton" id="root_button">
                                 <property name="valign">center</property>
@@ -119,13 +119,13 @@
                 </child>
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Desktop</property>
+                    <property name="title" translatable="true">Desktop</property>
                     <child>
                       <object class="GtkListBox" id="desktop_listbox">
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow" id="desktop_label">
-                            <property name="title">desktop</property>
+                            <property name="title" translatable="true">desktop</property>
                             <child>
                               <object class="GtkButton" id="desktop_button">
                                 <property name="valign">center</property>
@@ -144,13 +144,13 @@
                 </child>
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Partition Settings</property>
+                    <property name="title" translatable="true">Partition Settings</property>
                     <child>
                       <object class="GtkListBox" id="partition_listbox">
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow" id="partition_label">
-                            <property name="title">selected install partition</property>
+                            <property name="title" translatable="true">selected install partition</property>
                             <property name="subtitle">Disk size</property>
                             <child>
                               <object class="GtkButton" id="partition_button">
@@ -163,7 +163,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow" id="uefi_label">
-                            <property name="title">legacy bios/uefi</property>
+                            <property name="title" translatable="true">legacy bios/uefi</property>
                           </object>
                         </child>
                         <style>
@@ -175,13 +175,13 @@
                 </child>
                 <child>
                   <object class="AdwPreferencesGroup">
-                    <property name="title">Miscellaneous Settings</property>
+                    <property name="title" translatable="true">Miscellaneous Settings</property>
                     <child>
                       <object class="GtkListBox" id="misc_listbox">
                         <property name="selection-mode">none</property>
                         <child>
                           <object class="AdwActionRow" id="ipv_label">
-                            <property name="title">ipv6 enabled/disabled</property>
+                            <property name="title" translatable="true">ipv6 enabled/disabled</property>
                             <child>
                               <object class="GtkButton" id="ipv_button">
                                 <property name="valign">center</property>
@@ -193,7 +193,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow" id="timeshift_label">
-                            <property name="title">timeshift enabled/disabled</property>
+                            <property name="title" translatable="true">timeshift enabled/disabled</property>
                             <child>
                               <object class="GtkButton" id="timeshift_button">
                                 <property name="valign">center</property>
@@ -205,7 +205,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow" id="zramd_label">
-                            <property name="title">zramd enabled/disabled</property>
+                            <property name="title" translatable="true">zramd enabled/disabled</property>
                             <child>
                               <object class="GtkButton" id="zramd_button">
                                 <property name="valign">center</property>
@@ -235,7 +235,7 @@
                 <property name="label">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
-                <property name="tooltip-text">Move to next page</property>
+                <property name="tooltip-text" translatable="true">Move to next page</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>
