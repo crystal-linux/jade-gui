@@ -12,14 +12,14 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Miscellaneous</property>
+            <property name="title" translatable="true">Miscellaneous</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="AdwEntryRow" id="hostname_entry">
-                        <property name="title">Enter Hostname</property>
+                        <property name="title" translatable="true">Enter Hostname</property>
                       </object>
                     </child>
                     <child>
@@ -30,8 +30,8 @@
                         </style>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">IPv6 loopback</property>
-			                      <property name="subtitle">This can fix IPv6 connectivity issues with some ISPs.</property>
+                            <property name="title" translatable="true">IPv6 loopback</property>
+			                      <property name="subtitle" translatable="true">This can fix IPv6 connectivity issues with some ISPs.</property>
                             <child>
                               <object class="GtkSwitch" id="ipv_switch">
                                 <property name="valign">center</property>
@@ -42,8 +42,8 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Timeshift</property>
-			    <property name="subtitle">Support snapshots as a means to roll back to earlier states of the system.</property>
+                            <property name="title" translatable="true">Timeshift</property>
+			    <property name="subtitle" translatable="true">Support snapshots as a means to roll back to earlier states of the system.</property>
                             <child>
                               <object class="GtkSwitch" id="timeshift_switch">
                                 <property name="valign">center</property>
@@ -54,8 +54,8 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Zramd</property>
-			    <property name="subtitle">Creates a compressed area of Swap in RAM.</property>
+                            <property name="title" translatable="true">Zramd</property>
+			    <property name="subtitle" translatable="true">Creates a compressed area of Swap in RAM.</property>
                             <child>
                               <object class="GtkSwitch" id="zramd_switch">
                                 <property name="valign">center</property>
@@ -78,7 +78,7 @@
               <object class="GtkButton" id="next_page_button">
                 <property name="margin-end">20</property>
                 <property name="margin-bottom">20</property>
-                <property name="label">Next</property>
+                <property name="label" translatable="true">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
                 <property name="tooltip-text">Move to next page</property>

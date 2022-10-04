@@ -12,8 +12,8 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Installation Completed!</property>
-            <property name="description">Reboot the device to start using Crystal Linux!</property>
+            <property name="title" translatable="true">Installation Completed!</property>
+            <property name="description" translatable="true">Reboot the device to start using Crystal Linux!</property>
             <property name="icon-name">al.getcryst.jadegui</property>
             <child>
               <object class="GtkBox">
@@ -25,7 +25,7 @@
                 <child>
                   <object class="GtkButton" id="reboot_button">
                     <property name="margin-start">12</property>
-                    <property name="label">Reboot</property>
+                    <property name="label" translatable="true">Reboot</property>
                     <style>
                       <class name="suggested-action"/>
                       <class name="pill"/>

@@ -12,7 +12,7 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Select Timezone</property>
+            <property name="title" translatable="true">Select Timezone</property>
             <child>
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
@@ -56,7 +56,7 @@
                 <property name="label">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
-                <property name="tooltip-text">Move to next page</property>
+                <property name="tooltip-text" translatable="true">Move to next page</property>
                 <property name="sensitive">False</property>
                 <style>
                   <class name="suggested-action"/>

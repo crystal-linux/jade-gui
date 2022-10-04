@@ -12,25 +12,25 @@
           <object class="AdwStatusPage">
             <property name="hexpand">true</property>
             <property name="vexpand">true</property>
-            <property name="title">Create User</property>
-            <property name="description">You can add more users in the settings on the installed system.</property>
+            <property name="title" translatable="true">Create User</property>
+            <property name="description" translatable="true">You can add more users in the settings on the installed system.</property>
             <child>
               <object class="AdwPreferencesPage">
                 <child>
                   <object class="AdwPreferencesGroup">
                     <child>
                       <object class="AdwEntryRow" id="username_entry">
-                        <property name="title">Enter Username</property>
+                        <property name="title" translatable="true">Enter Username</property>
                       </object>
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="password_entry">
-                        <property name="title">Enter Password</property>
+                        <property name="title" translatable="true">Enter Password</property>
                       </object>
                     </child>
                     <child>
                       <object class="AdwPasswordEntryRow" id="password_confirmation">
-                        <property name="title">Re-enter Password</property>
+                        <property name="title" translatable="true">Re-enter Password</property>
                       </object>
                     </child>
                     <child>
@@ -41,7 +41,7 @@
                         </style>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Enable Administrative Rights for User</property>
+                            <property name="title" translatable="true">Enable Administrative Rights for User</property>
                             <property name="subtitle">Allows the user to use sudo</property>
                             <child>
                               <object class="GtkSwitch" id="enable_sudo_switch">
@@ -53,7 +53,7 @@
                         </child>
                         <child>
                           <object class="AdwActionRow">
-                            <property name="title">Enable Superuser Account</property>
+                            <property name="title" translatable="true">Enable Superuser Account</property>
                             <property name="subtitle">Allows using the root user</property>
                             <child>
                               <object class="GtkSwitch" id="enable_root_switch">
@@ -80,7 +80,7 @@
                 <property name="label">Next</property>
                 <property name="halign">end</property>
                 <property name="valign">end</property>
-                <property name="tooltip-text">Move to next page</property>
+                <property name="tooltip-text" translatable="true">Move to next page</property>
                 <property name="sensitive">False</property>
                 <style>
                   <class name="suggested-action"/>
