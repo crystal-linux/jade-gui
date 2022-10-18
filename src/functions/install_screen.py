@@ -39,7 +39,7 @@ class InstallScreen(Adw.Bin):
     def install(self):
         prefs = self.window.summary_screen.installprefs.generate_json()
         with open(os.getenv("HOME")+"/jade-gui.log", "wb") as f:
-            process=subprocess.Popen(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/install.sh"], stdout=subprocess.PIPE)
+            process=subprocess.Popen(["bash", "-c", "bash -- /usr/share/jade-gui/jade_gui/scripts/install.sh"], stdout=subprocess.PIPE)
             for c in iter(lambda: process.stdout.read(1), b""):
                 log=c
                 try:
