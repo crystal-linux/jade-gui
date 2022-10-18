@@ -49,7 +49,7 @@ def get_disk_size(disk: str):
     return str(math.floor(int(size)/1000**3))+" GB"
 
 def get_uefi():
-    command=subprocess.run(["bash", "-c", "bash -- /app/share/jade-gui/jade_gui/scripts/checkEFI.sh"], capture_output=True)
+    command=subprocess.run(["bash", "-c", "[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS"], capture_output=True)
     isEfi=True if command.stdout.decode('utf-8').strip('\n') == "UEFI" else False
     return isEfi
 
