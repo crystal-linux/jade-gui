@@ -30,11 +30,20 @@
 
 
 ### Building
-jade gui relies on a yet unreleased version of libadwaita, that's why you have to use flatpak to build it:
-
+Building as a flatpak (recommended for development)
 ```sh
 git clone https://github.com/crystal-linux/jade-gui
 cd jade-gui
 flatpak-builder --user --install --install-deps-from=flathub --force-clean build-dir al.getcryst.jadegui.yml
 flatpak run al.getcryst.jadegui
+```
+
+Building with meson
+```sh
+git clone https://github.com/crystal-linux/jade-gui
+cd jade-gui
+meson --prefix=/usr _build
+ninja -C _build
+cd _build
+sudo ninja install
 ```
