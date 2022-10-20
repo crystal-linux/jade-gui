@@ -27,7 +27,7 @@ conf.set('pkgdatadir', pkgdatadir)
 
 configure_file(
   input: 'jade_gui.in',
-  output: 'jade_gui',
+  output: 'jade-gui',
   configuration: conf,
   install: true,
   install_dir: get_option('bindir')

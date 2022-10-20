@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Install Crystal Linux
 
-Exec=jade_gui
+Exec=jade-gui
 
 Icon=al.getcryst.jadegui
 
