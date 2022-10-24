@@ -672,6 +672,13 @@ keymaps = [
     ],
   ),
   keymap(
+    layout="Latin America",
+    backend_layout="la-latin1",
+    variant=[
+      "normal",
+    ],
+  ),
+  keymap(
     layout="Lativa",
     backend_layout="lv",
     variant=[
