@@ -1,3 +1,9 @@
+# **THIS PROJECT HAS BEEN MIGRATED TO GITLAB**
+Please make any PRs here, rather than to the GitHub: https://git.getcryst.al/crystal
+
+# REPOSITORIES HERE ARE **OUTDATED**, GO TO THE LINK  BELOW
+# ---- > https://git.getcryst.al/crystal < ----
+
 <p align="center">
   <a href="https://github.com/crystal-linux/todo/">
     <img src="https://github.com/crystal-linux/branding/blob/main/logos/crystal-logo-minimal.png?raw=true" alt="Logo" width="150" height="150">
